@@ -332,6 +332,11 @@ class Home extends CI_Controller {
 
     public function advanced_search_results(){
         
+        var_dump($_POST);
+
+        die;
+
+        
         if($_POST){
 
             $key    = $_POST['key'];

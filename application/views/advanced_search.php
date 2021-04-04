@@ -1,11 +1,22 @@
 <div class="row">
     <div class="col col-12">
         <form action="<?= base_url(); ?>home/advanced_search_results" method="post">
-
+            <h2>البحث المتقدم</h2>
+            <hr/>
+            
             <div class="form-group">
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-primary">بحث</button>
+                    <button type="submit" class="btn btn-primary">ابحث الان</button>
                 </div>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1" name="or_search" value="or" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline1">البحث باستخدام ( أو )</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2" name="or_search" value="and" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2">البحث باستخدام ( و )</label>
             </div>
 
             <div class="form-group">
@@ -188,11 +199,17 @@
                 </div>
             </div>
 
+            <hr/>
+
             <div class="form-group">
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-primary">بحث</button>
+                    <button type="submit" class="btn btn-primary">ابحث الان</button>
                 </div>
             </div>
+
+            
+
+
         </form>
     </div>
 </div>
