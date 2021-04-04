@@ -1,4 +1,10 @@
 ###################
+This personal library project to save and sort data
+###################
+in this proeject you can search and store books as much as you can, this project built in CodeIgniter
+
+
+###################
 What is CodeIgniter
 ###################
 
