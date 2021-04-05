@@ -134,6 +134,10 @@ class Home_model extends CI_Model {
 
     }
 
+    public function search($sql){
+        return $this->db->query($sql);
+    }
+
     public function get_users(){
         return $this->db->get('users');
     }

@@ -11,7 +11,7 @@
             </div>
 
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline1" name="or_search" value="or" class="custom-control-input">
+                <input type="radio" id="customRadioInline1" name="or_search" checked value="or" class="custom-control-input">
                 <label class="custom-control-label" for="customRadioInline1">البحث باستخدام ( أو )</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">

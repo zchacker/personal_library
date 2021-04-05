@@ -332,13 +332,125 @@ class Home extends CI_Controller {
 
     public function advanced_search_results(){
         
-        var_dump($_POST);
-
-        die;
+        //var_dump($_POST);
+        //die;
 
         
         if($_POST){
 
+            // $clean_values = array();
+            // array_walk($_POST, 'sanitize_post');
+
+            // this line of code from 
+            // https://www.geeksforgeeks.org/how-to-trim-all-strings-in-an-array-in-php/
+            array_walk($_POST, create_function('&$val','$val = trim($val);') );            
+
+            $sql = "SELECT * FROM books ";
+            $conditions = array();
+
+            if (!empty($_POST['subject'])) {
+                $conditions[] = "subject LIKE '%$_POST[subject]%'";
+            }
+
+            if (!empty($_POST['title'])) {
+                $conditions[] = "title LIKE '%$_POST[title]%'";
+            }
+
+            if (!empty($_POST['auther_name'])) {
+                $conditions[] = "auther_name LIKE '%$_POST[auther_name]%'";
+            }
+
+            if (!empty($_POST['nickname'])) {
+                $conditions[] = "nickname LIKE '%$_POST[nickname]%'";
+            }
+
+            if (!empty($_POST['folders'])) {
+                $conditions[] = "folders LIKE '%$_POST[folders]%'";
+            }
+
+            if (!empty($_POST['pages'])) {
+                $conditions[] = "pages LIKE '%$_POST[pages]%'";
+            }
+
+            if (!empty($_POST['publisher_name'])) {
+                $conditions[] = "publisher_name LIKE '%$_POST[publisher_name]%'";
+            }
+
+            if (!empty($_POST['publisher_country'])) {
+                $conditions[] = "publisher_country LIKE '%$_POST[publisher_country]%'";
+            }
+
+            if (!empty($_POST['publisher_address'])) {
+                $conditions[] = "publisher_address LIKE '%$_POST[publisher_address]%'";
+            }
+
+            if (!empty($_POST['edition'])) {
+                $conditions[] = "edition LIKE '%$_POST[edition]%'";
+            }
+
+            if (!empty($_POST['notes'])) {
+                $conditions[] = "notes LIKE '%$_POST[notes]%'";
+            }
+
+            if (!empty($_POST['notes'])) {
+                $conditions[] = "notes LIKE '%$_POST[notes]%'";
+            }
+
+            if (!empty($_POST['notes'])) {
+                $conditions[] = "notes LIKE '%$_POST[notes]%'";
+            }
+
+            if (!empty($_POST['edition_date1'])) {
+                $edition_date1 =  date("Y-m-d", strtotime( $_POST['edition_date1'] )); 
+                $conditions[] = "edition_date >= $edition_date1";
+            }
+            
+            if (!empty($_POST['edition_date2'])) {
+                $edition_date2 =  date("Y-m-d", strtotime( $_POST['edition_date2'] )); 
+                $conditions[] = "edition_date <= $edition_date2";
+            }
+            
+            if (!empty($_POST['hijri-date-input1'])) {
+                $hijri_date_input1 = $_POST['hijri-date-input1'];
+                $conditions[] = "death_hijri >= $hijri_date_input1";
+            }
+            
+            if (!empty($_POST['hijri-date-input2'])) {
+                $hijri_date_input2 = $_POST['hijri-date-input2'];
+                $conditions[] = "death_hijri <= $hijri_date_input2";
+            }
+
+            if (!empty($_POST['gerogian-date-input1'])) {
+                $gerogian_date_input1 = $_POST['hijri-date-input1'];
+                $conditions[] = "death_gregorian >= $gerogian_date_input1";
+            }
+            
+            if (!empty($_POST['gerogian-date-input2'])) {
+                $gerogian_date_input2 = $_POST['gerogian-date-input2'];
+                $conditions[] = "death_gregorian <= $gerogian_date_input2";
+            }
+
+            if (!empty($_POST['create_date1'])) {
+                $create_date1 =  date("Y-m-d", strtotime( $_POST['create_date1'] )); 
+                $conditions[] = "create_date >= $create_date1";
+            }
+            
+            if (!empty($_POST['create_date2'])) {
+                $create_date2 = date("Y-m-d", strtotime( $_POST['create_date2'] )); 
+                $conditions[] = "create_date <= $create_date2";
+            }
+
+            
+            if (count($conditions) > 0) {
+                $or_search = $_POST['or_search'];
+                if($or_search == 'and'){
+                    $sql .= " WHERE " . implode(' AND ', $conditions);
+                }else{
+                    $sql .= " WHERE " . implode(' OR ', $conditions);
+                }
+            }
+
+            /* 
             $key    = $_POST['key'];
             $query  = $_POST['query'];
 
@@ -375,6 +487,7 @@ class Home extends CI_Controller {
             
             */
             
+            /*
             if(strlen($create_date1) > 0)
                 $create_date1           =  date("Y-m-d", strtotime( $create_date1 )); 
            
@@ -385,7 +498,9 @@ class Home extends CI_Controller {
             
             $books = $this->home_model->advanced_search_books( $key , $query , $edition_date1 , $edition_date2 , $hijri_date_input1 , 
             $hijri_date_input2 , $gerogian_date_input1 , $gerogian_date_input2 , $create_date1 , $create_date2 );
+            */
 
+            $books = $this->home_model->search($sql);
 
             $this->load->library('pagination');
             $config['total_rows'] 			= $books->num_rows();
@@ -413,12 +528,17 @@ class Home extends CI_Controller {
 
             $page_number = intval($this->uri->segment($config['uri_segment']));
 
-            $data['books'] = $this->home_model->advanced_search_books_limit( $key , $query, $edition_date1 , $edition_date2 , $hijri_date_input1 , 
-            $hijri_date_input2 , $gerogian_date_input1 , $gerogian_date_input2 , $create_date1 , $create_date2 , $page_number , $config['per_page'])->result();
+            // $data['books'] = $this->home_model->advanced_search_books_limit( $key , $query, $edition_date1 , $edition_date2 , $hijri_date_input1 , 
+            // $hijri_date_input2 , $gerogian_date_input1 , $gerogian_date_input2 , $create_date1 , $create_date2 , $page_number , $config['per_page'])->result();
+            
+
+            $sql .= " LIMIT $page_number , $config[per_page]";
+
+            $data['books'] = $this->home_model->search($sql)->result();
             $this->pagination->initialize($config);
 
-            $data['key']   = $_POST['key'];
-            $data['query'] = $_POST['query'];
+            // $data['key']   = $_POST['key'];
+            // $data['query'] = $_POST['query'];
 
             $this->load->view('header');
             $this->load->view('home' , $data);
@@ -767,6 +887,11 @@ class Home extends CI_Controller {
         redirect('login', 'refresh');
     }
     
+
+    private function sanitize_post($item, $key){
+        $clean_values[$key] = trim($item);
+        //optional further cleaning ex) htmlentities
+    }
 
 }
 
