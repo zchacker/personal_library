@@ -771,6 +771,30 @@ class Home extends CI_Controller {
         }
     }
 
+    public function get_booktitle(){
+        if($_POST){
+
+            $query   = $_POST['query'];
+            $results = $this->home_model->get_booktitle($query)->result();
+
+            $response = array();
+
+            foreach($results as $row){
+                $response[] = array(
+                    'value' => $row->title ,
+                    'label' => $row->title ,
+                    'subject' => $row->subject ,
+                    'auther_name' => $row->auther_name ,
+                    'nickname' => $row->nickname ,
+                    'death_hijri' => $row->death_hijri ,
+                    'death_gregorian' => $row->death_gregorian ,
+                );
+            }
+            
+            echo json_encode($response);
+        }
+    }
+
     public function test(){
         $this->load->view('test');
     }

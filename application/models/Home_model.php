@@ -163,10 +163,16 @@ class Home_model extends CI_Model {
 
     // get auther data
     public function get_auther( $nickname ){
-        $sql =
-            "SELECT  books.auther_name, books.nickname , books.death_hijri , books.death_gregorian  FROM books
+        $sql = "SELECT  books.auther_name, books.nickname , books.death_hijri , books.death_gregorian  FROM books
             WHERE nickname LIKE '%$nickname%'
             GROUP By auther_name , nickname , death_hijri , death_gregorian";
+        return $this->db->query($sql);
+    }
+
+    public function get_booktitle( $title ){
+        $sql = "SELECT books.title , books.subject , books.auther_name, books.nickname , books.death_hijri , books.death_gregorian  FROM books
+            WHERE books.title LIKE '%$title%'
+            GROUP By books.title , books.subject , auther_name , nickname , death_hijri , death_gregorian";
         return $this->db->query($sql);
     }
 

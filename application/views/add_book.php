@@ -18,7 +18,7 @@
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">الموضوع</label>
     <!-- <input type="text" class="form-control" name="subject" placeholder="الموضوع" /> -->
-    <select name="subject" class="form-control">
+    <select name="subject" id="subject" class="form-control">
       <option value="حديث">حديث</option>
       <option value="عقيدة">عقيدة</option>
       <option value="ادب">ادب</option>
@@ -27,7 +27,7 @@
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">عنوان الكتاب</label>
-    <input type="text" class="form-control" name="title" placeholder="عنوان الكتاب" />
+    <input type="text" class="form-control" name="title" id="title" placeholder="عنوان الكتاب" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">اسم المؤلف</label>
@@ -353,6 +353,44 @@
       autoFocus: false
     });
 
+
+    $("#title").autocomplete({      
+      source: function(request, response) {        
+        if (document.getElementById('autocompeleteRun').checked) {
+          // Fetch data
+          $.ajax({
+            url: "<?= base_url() ?>home/get_booktitle",
+            type: 'post',
+            dataType: "json",
+            data: {
+              query: request.term
+            },
+            success: function(data) {
+              console.log(data);
+              response(data);
+            }
+          });
+        }
+      },
+      select: function(event, ui) {
+        // Set selection
+        $('#subject').val(ui.item.subject); // display the selected text
+        $('#title').val(ui.item.value); // display the selected text
+        $('#auther_name').val(ui.item.auther_name); // display the selected text
+        $('#nickname').val(ui.item.nickname); // display the selected text
+        $('#death_hijri').val(ui.item.death_hijri); // display the selected text
+        $('#death_gregorian').val(ui.item.death_gregorian); // save selected id to input
+        return false;
+      },
+      focus: function(event, ui) {
+        // $('#auther_name').val(ui.item.auther_name); // display the selected text
+        // $('#nickname').val(ui.item.nickname); // display the selected text
+        // $('#death_hijri').val(ui.item.death_hijri); // display the selected text
+        // $('#death_gregorian').val(ui.item.death_gregorian); // save selected id to input
+        return false;
+      },
+      autoFocus: false
+    });
 
 
   });
