@@ -1,13 +1,13 @@
-<h2>إضافة جديد</h2>
+<h2>إضافة المخطوطة</h2>
 <hr />
 
-<span>الاكمال التلقائي</span>
+<!-- <span>الاكمال التلقائي</span>
 <label class="switch">
   <input type="checkbox" id="autocompeleteRun" checked>
   <span class="slider round"></span>
-</label>
+</label> -->
 
-<form action="" method="post" class="row g-3">
+<form action="" method="post" class="row g-3" onsubmit="return onSubmit()">
 
   <div class="col-md-12">
     <?php if (strlen($msg) > 0) {  ?>
@@ -17,7 +17,7 @@
 
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">رقم السجل</label>    
-    <input type="text" class="form-control" name="registery_number" id="registery_number" placeholder="رقم السجل" />
+    <input type="text" class="form-control" name="registery_number" disabled value="<?=$random_number?>" id="registery_number" placeholder="رقم السجل" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">رقم الحفظ</label>
@@ -39,11 +39,11 @@
     <label for="inputEmail4" class="form-label">العنوان الفرعي</label>
     <input type="text" class="form-control" name="branch_title" id="branch_title" autocomplete="off" placeholder="العنوان الفرعي" />
   </div>
-  <div class="col-md-3">
+  <div class="col-md-6">
     <label for="inputEmail4" class="form-label">اسم المؤلف</label>
     <input type="text" class="form-control" name="auther_name" autocomplete="off" placeholder="اسم المؤلف" />
   </div>
-  <div class="col-md-3">
+  <div class="col-md-6">
     <label for="inputEmail4" class="form-label">لقبه</label>
     <input type="text" class="form-control" name="auther_nickname" autocomplete="off" placeholder="لقبه" />
   </div>
@@ -53,7 +53,7 @@
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">قرن وفاته هجريا</label>
-    <input type="text" class="form-control" name="auther_hijri_death_century" autocomplete="off" placeholder="قرن وفاته هجريا" /> 
+    <input type="number" class="form-control" maxlength="2" max="15" name="auther_hijri_death_century" id="auther_hijri_death_century" autocomplete="off" placeholder="قرن وفاته هجريا" /> 
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">تاريخ وفاته ميلاديا</label>
@@ -61,9 +61,9 @@
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">قرن وفاته ميلاديا</label>
-    <input type="text" class="form-control" name="auther_gregorian_death_century" autocomplete="off" placeholder="قرن وفاته ميلاديا" />
+    <input type="number" class="form-control" maxlength="2" max="21" name="auther_gregorian_death_century" autocomplete="off" placeholder="قرن وفاته ميلاديا" />
   </div>
-  <div class="col-md-6">
+  <div class="col-md-12">
     <label for="inputEmail4" class="form-label">مصادر ترجمته</label>
     <input type="text" class="form-control" name="translate_sources" id="translate_sources" autocomplete="off" placeholder="مصادر ترجمته" />
   </div>
@@ -89,17 +89,17 @@
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">قرن النسخ هجريا</label>
-    <input type="text" class="form-control" name="version_date_century" id="version_date_century" autocomplete="off" placeholder="قرن النسخ هجريا" />
+    <input type="number" class="form-control" maxlength="2" max="15" name="version_date_century" id="version_date_century" autocomplete="off" placeholder="قرن النسخ هجريا" />
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     <label for="inputEmail4" class="form-label">اسم الناسخ</label>
     <input type="text" class="form-control" name="copy_name" id="copy_name" autocomplete="off" placeholder="اسم الناسخ" />
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     <label for="inputEmail4" class="form-label">مكان النسخ</label>
     <input type="text" class="form-control" name="copy_location" id="copy_location" autocomplete="off" placeholder="مكان النسخ" />
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     <label for="inputEmail4" class="form-label">نوع الخط</label>
     <input type="text" class="form-control" name="font_type" id="font_type" autocomplete="off" placeholder="نوع الخط" />
   </div>
@@ -113,7 +113,7 @@
   </div>  
   <div class="col-md-12">
     <br>
-    <input type="submit" class="btn btn-success" value="أضف" />
+    <input type="submit" class="btn btn-success" value="حفظ المخطوطة" />
   </div>
 
 </form>
@@ -129,15 +129,13 @@
     //$("#hijri-date-input").hijriDatePicker({ hijri:true });
     //$("#gerogian-date-input").hijriDatePicker({ hijri:false , format:'YYYY-MM-DD' });
 
-    $("#edition_date").hijriDatePicker({
+    /*$("#edition_date").hijriDatePicker({
       hijri: false,
       format: 'YYYY-MM-DD'
     });
 
     $('#autocompeleteRun').click(function() {
-
-      //alert("Handler for .click() called: " + document.getElementById('autocompeleteRun').checked);
-
+  
       $.ajax({
         url: "<?= base_url() ?>home/get_auther",
         type: 'post',
@@ -227,8 +225,32 @@
         return false;
       },
       autoFocus: false
-    });
+    });*/
 
 
   });
+
+  function onSubmit(){
+
+    var auther_hijri_death_century = document.getElementById('auther_hijri_death_century');
+    auther_hijri_death_century.oninvalid = function(event) {
+        event.target.setCustomValidity('الرجاء ان لا يتجاوز الرقم 15');
+        return false;
+    }
+
+    var auther_gregorian_death_century = document.getElementById('auther_gregorian_death_century');
+    auther_gregorian_death_century.oninvalid = function(event) {
+        event.target.setCustomValidity('الرجاء ان لا يتجاوز الرقم 21');
+        return false;
+    }
+    
+    var version_date_century = document.getElementById('version_date_century');
+    version_date_century.oninvalid = function(event) {
+        event.target.setCustomValidity('الرجاء ان لا يتجاوز الرقم 15');
+        return false;
+    }    
+
+    return true;
+    
+  }
 </script>

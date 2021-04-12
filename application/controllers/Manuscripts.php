@@ -80,9 +80,11 @@ class Manuscripts extends CI_Controller {
     public function add_book(){
 
         $message = "";
-
+    
         if($_POST){
-
+            var_dump($_POST);
+            die;
+            
             $subject = $_POST['subject'];
             $title = $_POST['title'];
             $auther_name = $_POST['auther_name'];
@@ -135,13 +137,33 @@ class Manuscripts extends CI_Controller {
             
         }
 
+        // generate random registration number
+        /*$uniques = range(100000, 999999);
+        shuffle($uniques);
+        $uniques = array_slice($uniques, 0, 500);
+        print_r($uniques);*/
+
+        $random_number = mt_rand(100000, 999999);       
+        $random_char   = $this->generateRandomString(2);        
+
         $data['msg'] = $message;
+        $data['random_number'] = $random_char.$random_number;
         $this->load->view('manuscripts/header');
         $this->load->view('manuscripts/add_book' , $data);
         $this->load->view('manuscripts/footer');
         
     }
 
+
+    private function generateRandomString($length = 25) {
+        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
 }
 
 ?>
