@@ -319,104 +319,166 @@ class Manuscripts extends CI_Controller {
     public function advanced_search_results(){
         
         if($_POST){
-            
+
             // this line of code from 
             // https://www.geeksforgeeks.org/how-to-trim-all-strings-in-an-array-in-php/
             array_walk($_POST, create_function('&$val','$val = trim($val);') );            
 
-            $sql = "SELECT * FROM books ";
+            $sql = "SELECT * FROM manuscripts ";
             $conditions = array();
 
-            if (!empty($_POST['subject'])) {
-                $conditions[] = "subject LIKE '%$_POST[subject]%'";
+            if (!empty($_POST['registery_number'])) {
+                $conditions[] = "registery_number LIKE '%$_POST[registery_number]%'";
             }
 
-            if (!empty($_POST['title'])) {
-                $conditions[] = "title LIKE '%$_POST[title]%'";
+            if (!empty($_POST['save_number'])) {
+                $conditions[] = "save_number LIKE '%$_POST[save_number]%'";
+            }
+
+            if (!empty($_POST['org_art'])) {
+                $conditions[] = "org_art LIKE '%$_POST[org_art]%'";
+            }
+
+            if (!empty($_POST['branch_art'])) {
+                $conditions[] = "branch_art LIKE '%$_POST[branch_art]%'";
+            }
+
+            if (!empty($_POST['org_title'])) {
+                $conditions[] = "org_title LIKE '%$_POST[org_title]%'";
             }
 
             if (!empty($_POST['auther_name'])) {
                 $conditions[] = "auther_name LIKE '%$_POST[auther_name]%'";
             }
 
-            if (!empty($_POST['nickname'])) {
-                $conditions[] = "nickname LIKE '%$_POST[nickname]%'";
+            if (!empty($_POST['auther_nickname'])) {
+                $conditions[] = "auther_nickname LIKE '%$_POST[auther_nickname]%'";
             }
 
-            if (!empty($_POST['folders'])) {
-                $conditions[] = "folders LIKE '%$_POST[folders]%'";
+            if (!empty($_POST['translate_sources'])) {
+                $conditions[] = "translate_sources LIKE '%$_POST[translate_sources]%'";
             }
 
-            if (!empty($_POST['pages'])) {
-                $conditions[] = "pages LIKE '%$_POST[pages]%'";
-            }
-
-            if (!empty($_POST['publisher_name'])) {
-                $conditions[] = "publisher_name LIKE '%$_POST[publisher_name]%'";
-            }
-
-            if (!empty($_POST['publisher_country'])) {
-                $conditions[] = "publisher_country LIKE '%$_POST[publisher_country]%'";
-            }
-
-            if (!empty($_POST['publisher_address'])) {
-                $conditions[] = "publisher_address LIKE '%$_POST[publisher_address]%'";
+            if (!empty($_POST['book_start'])) {
+                $conditions[] = "book_start LIKE '%$_POST[book_start]%'";
             }
 
             if (!empty($_POST['edition'])) {
                 $conditions[] = "edition LIKE '%$_POST[edition]%'";
             }
 
-            if (!empty($_POST['notes'])) {
-                $conditions[] = "notes LIKE '%$_POST[notes]%'";
+            if (!empty($_POST['book_end'])) {
+                $conditions[] = "book_end LIKE '%$_POST[book_end]%'";
             }
 
-            if (!empty($_POST['notes'])) {
-                $conditions[] = "notes LIKE '%$_POST[notes]%'";
+            if (!empty($_POST['pages_number'])) {
+                $conditions[] = "pages_number LIKE '%$_POST[pages_number]%'";
             }
 
-            if (!empty($_POST['notes'])) {
-                $conditions[] = "notes LIKE '%$_POST[notes]%'";
+            if (!empty($_POST['compelete_version'])) {
+                $conditions[] = "compelete_version LIKE '%$_POST[compelete_version]%'";
             }
 
-            if (!empty($_POST['edition_date1'])) {
-                $edition_date1 =  date("Y-m-d", strtotime( $_POST['edition_date1'] )); 
-                $conditions[] = "edition_date >= $edition_date1";
-            }
-            
-            if (!empty($_POST['edition_date2'])) {
-                $edition_date2 =  date("Y-m-d", strtotime( $_POST['edition_date2'] )); 
-                $conditions[] = "edition_date <= $edition_date2";
-            }
-            
-            if (!empty($_POST['hijri-date-input1'])) {
-                $hijri_date_input1 = $_POST['hijri-date-input1'];
-                $conditions[] = "death_hijri >= $hijri_date_input1";
-            }
-            
-            if (!empty($_POST['hijri-date-input2'])) {
-                $hijri_date_input2 = $_POST['hijri-date-input2'];
-                $conditions[] = "death_hijri <= $hijri_date_input2";
+            if (!empty($_POST['copy_name'])) {
+                $conditions[] = "copy_name LIKE '%$_POST[copy_name]%'";
             }
 
-            if (!empty($_POST['gerogian-date-input1'])) {
-                $gerogian_date_input1 = $_POST['hijri-date-input1'];
-                $conditions[] = "death_gregorian >= $gerogian_date_input1";
-            }
-            
-            if (!empty($_POST['gerogian-date-input2'])) {
-                $gerogian_date_input2 = $_POST['gerogian-date-input2'];
-                $conditions[] = "death_gregorian <= $gerogian_date_input2";
+            if (!empty($_POST['copy_location'])) {
+                $conditions[] = "copy_location LIKE '%$_POST[copy_location]%'";
             }
 
-            if (!empty($_POST['create_date1'])) {
-                $create_date1 =  date("Y-m-d", strtotime( $_POST['create_date1'] )); 
-                $conditions[] = "create_date >= $create_date1";
+            if (!empty($_POST['font_type'])) {
+                $conditions[] = "font_type LIKE '%$_POST[font_type]%'";
+            }
+
+            if (!empty($_POST['note'])) {
+                $conditions[] = "note LIKE '%$_POST[note]%'";
+            }
+
+            if (!empty($_POST['custodian_asset'])) {
+                $conditions[] = "custodian_asset LIKE '%$_POST[custodian_asset]%'";
+            }
+
+            if (!empty($_POST['entry_name'])) {
+                $conditions[] = "entry_name LIKE '%$_POST[entry_name]%'";
+            }
+
+            /* ########## dates ################ */
+
+            if (!empty($_POST['auther_hijri_death1'])) {
+                $auther_hijri_death1 =  $_POST['auther_hijri_death1']; 
+                $conditions[] = "auther_hijri_death >= $auther_hijri_death1";
+            }
+
+            if (!empty($_POST['auther_hijri_death2'])) {
+                $auther_hijri_death2 =  $_POST['auther_hijri_death2']; 
+                $conditions[] = "auther_hijri_death <= $auther_hijri_death2";
+            }
+
+            if (!empty($_POST['auther_hijri_death_century1'])) {
+                $auther_hijri_death_century1 =  $_POST['auther_hijri_death_century1']; 
+                $conditions[] = "auther_hijri_death_century >= $auther_hijri_death_century1";
+            }
+
+            if (!empty($_POST['auther_hijri_death_century2'])) {
+                $auther_hijri_death_century2 =   $_POST['auther_hijri_death_century2']; 
+                $conditions[] = "auther_hijri_death_century <= $auther_hijri_death_century2";
             }
             
-            if (!empty($_POST['create_date2'])) {
-                $create_date2 = date("Y-m-d", strtotime( $_POST['create_date2'] )); 
-                $conditions[] = "create_date <= $create_date2";
+            if (!empty($_POST['auther_gregorian_death1'])) {
+                $auther_gregorian_death1 =   $_POST['auther_gregorian_death1']; 
+                $conditions[] = "auther_gregorian_death >= $auther_gregorian_death1";
+            }
+
+            if (!empty($_POST['auther_gregorian_death2'])) {
+                $auther_gregorian_death2 =  $_POST['auther_gregorian_death2']; 
+                $conditions[] = "auther_gregorian_death <= $auther_gregorian_death2";
+            }
+//
+            if (!empty($_POST['auther_gregorian_death_century1'])) {
+                $auther_gregorian_death_century1 =   $_POST['auther_gregorian_death_century1']; 
+                $conditions[] = "auther_gregorian_death_century >= $auther_gregorian_death_century1";
+            }
+
+            if (!empty($_POST['auther_gregorian_death_century2'])) {
+                $auther_gregorian_death_century2 =  $_POST['auther_gregorian_death_century2']; 
+                $conditions[] = "auther_gregorian_death_century <= $auther_gregorian_death_century2";
+            }
+
+            //
+
+            if (!empty($_POST['version_date_hijri1'])) {
+                $version_date_hijri1 =   $_POST['version_date_hijri1']; 
+                $conditions[] = "version_date_hijri >= $version_date_hijri1";
+            }
+
+            if (!empty($_POST['version_date_hijri2'])) {
+                $version_date_hijri2 =  $_POST['version_date_hijri2']; 
+                $conditions[] = "version_date_hijri <= $version_date_hijri2";
+            }
+
+            //
+
+            if (!empty($_POST['version_date_century1'])) {
+                $version_date_century1 =   $_POST['version_date_century1']; 
+                $conditions[] = "version_date_century >= $version_date_century1";
+            }
+
+            if (!empty($_POST['version_date_century2'])) {
+                $version_date_century2 =  $_POST['version_date_century2']; 
+                $conditions[] = "version_date_century <= $version_date_century2";
+            }
+
+            // 
+
+            if (!empty($_POST['entry_date1'])) {
+                $entry_date1 =   $_POST['entry_date1']; 
+                $conditions[] = "entry_date >= $entry_date1";
+            }
+
+            if (!empty($_POST['entry_date2'])) {
+                $entry_date2 =  $_POST['entry_date2']; 
+                $conditions[] = "entry_date <= $entry_date2";
             }
 
             
@@ -430,7 +492,7 @@ class Manuscripts extends CI_Controller {
             }
             
 
-            $books = $this->home_model->search($sql);
+            $books = $this->manuscripts_model->search($sql);
 
             $this->load->library('pagination');
             $config['total_rows'] 			= $books->num_rows();
@@ -450,7 +512,7 @@ class Manuscripts extends CI_Controller {
             $config['first_tagl_close'] 	= '</span></li>';
             $config['last_tag_open'] 		= '<li class="page-item"><span class="page-link">';
             $config['last_tagl_close'] 		= '</span></li>';
-            $config['base_url'] 			= base_url() . "home/index";
+            $config['base_url'] 			= base_url() . "manuscripts/advanced_search_results";
             $config['uri_segment'] 			= $this->uri->total_segments(); //4;
 
             $this->pagination->initialize($config);
@@ -458,21 +520,17 @@ class Manuscripts extends CI_Controller {
 
             $page_number = intval($this->uri->segment($config['uri_segment']));
 
-            // $data['books'] = $this->home_model->advanced_search_books_limit( $key , $query, $edition_date1 , $edition_date2 , $hijri_date_input1 , 
-            // $hijri_date_input2 , $gerogian_date_input1 , $gerogian_date_input2 , $create_date1 , $create_date2 , $page_number , $config['per_page'])->result();
-            
-
             $sql .= " LIMIT $page_number , $config[per_page]";
 
-            $data['books'] = $this->home_model->search($sql)->result();
+            $data['books'] = $this->manuscripts_model->search($sql)->result();
             $this->pagination->initialize($config);
 
             // $data['key']   = $_POST['key'];
             // $data['query'] = $_POST['query'];
 
-            $this->load->view('header');
-            $this->load->view('home' , $data);
-            $this->load->view('footer');
+            $this->load->view('manuscripts/header');
+            $this->load->view('manuscripts/home' , $data);
+            $this->load->view('manuscripts/footer');
         
         }else{
 

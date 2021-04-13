@@ -46,6 +46,10 @@ class Manuscripts_model extends CI_Model {
         return $this->db->get('manuscripts');
     }
 
+    public function search($sql){
+        return $this->db->query($sql);
+    }
+    
 }
 
 ?>
