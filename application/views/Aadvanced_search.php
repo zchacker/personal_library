@@ -166,19 +166,39 @@
                 </div>
             </div>
 
+            <!-- <div class="form-group">
+                <div class="col-md-6">
+                    <label for="">حقل البحث</label>
+                    <select name="key" id="" class="form-control">
+                        <option value="subject">الموضوع</option>
+                        <option value="title">عنوان الكتاب</option>                        
+                        <option value="auther_name" >اسم المؤلف</option>
+                        <option value="nickname" >لقبه</option>
+                        <option value="folders">عدد المجلدات</option>
+                        <option value="pages">عدد الصفحات</option>
+                        <option value="publisher_name">اسم الناشر</option>
+                        <option value="publisher_country">دولة الناشر</option>
+                        <option value="publisher_address">عنوان الناشر</option>
+                        <option value="edition">الطبعة</option>
+                        <option value="notes">ملحوظات</option>
+                        <option value="user_name">اسم مدخل البيانات</option>                        
+                    </select>
+                </div>
+            </div> -->
+
             <div class="form-group">
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">تاريخ وفاة المؤلف هجريا</label>
+                    <label for="inputEmail4" class="form-label">تاريخ وفات المؤلف هجريا</label>
 
                     <div class="row">
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">من</label>
-                            <input type="text" class="form-control" name="auther_hijri_death1" id="auther_hijri_death1" autocomplete="off" placeholder="تاريخ الطبعة من" />
+                            <input type="text" class="form-control" name="edition_date1" id="edition_date1" autocomplete="off" placeholder="تاريخ الطبعة من" />
                         </div>
 
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">إلى</label>
-                            <input type="text" class="form-control" name="auther_hijri_death2" id="auther_hijri_death2" autocomplete="off" placeholder="تاريخ الطبعة إلى" />
+                            <input type="text" class="form-control" name="edition_date2" id="edition_date2" autocomplete="off" placeholder="تاريخ الطبعة إلى" />
                         </div>
                     </div>
 
@@ -192,12 +212,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">من</label>
-                            <input type="text" class="form-control" name="auther_hijri_death_century1" id="auther_hijri_death_century1" autocomplete="off" placeholder="سنة الوفاه هجري من" />
+                            <input type="text" class="form-control" name="hijri-date-input1" id="hijri-date-input1" autocomplete="off" placeholder="سنة الوفاه هجري من" />
                         </div>
 
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">إلى</label>
-                            <input type="text" class="form-control" name="auther_hijri_death_century2" id="auther_hijri_death_century2" autocomplete="off" placeholder="سنة الوفاه هجري إلى" />
+                            <input type="text" class="form-control" name="hijri-date-input2" id="hijri-date-input2" autocomplete="off" placeholder="سنة الوفاه هجري إلى" />
                         </div>
                     </div>
 
@@ -206,17 +226,17 @@
 
             <div class="form-group">
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">تاريخ وفاة المؤلف ميلاديا</label>
+                    <label for="inputEmail4" class="form-label">تاريخ وفات المؤلف ميلاديا</label>
 
                     <div class="row">
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">من</label>
-                            <input type="text" class="form-control" name="auther_gregorian_death1" id="auther_gregorian_death1" autocomplete="off" placeholder="سنة الوفاه هجري من" />
+                            <input type="text" class="form-control" name="hijri-date-input1" id="hijri-date-input1" autocomplete="off" placeholder="سنة الوفاه هجري من" />
                         </div>
 
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">إلى</label>
-                            <input type="text" class="form-control" name="auther_gregorian_death2" id="auther_gregorian_death2" autocomplete="off" placeholder="سنة الوفاه هجري إلى" />
+                            <input type="text" class="form-control" name="hijri-date-input2" id="hijri-date-input2" autocomplete="off" placeholder="سنة الوفاه هجري إلى" />
                         </div>
                     </div>
 
@@ -230,12 +250,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">من</label>
-                            <input type="text" class="form-control" name="auther_gregorian_death_century1" id="auther_gregorian_death_century1" autocomplete="off" placeholder="سنة الوفاه هجري من" />
+                            <input type="text" class="form-control" name="hijri-date-input1" id="hijri-date-input1" autocomplete="off" placeholder="سنة الوفاه هجري من" />
                         </div>
 
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">إلى</label>
-                            <input type="text" class="form-control" name="auther_gregorian_death_century2" id="auther_gregorian_death_century2" autocomplete="off" placeholder="سنة الوفاه هجري إلى" />
+                            <input type="text" class="form-control" name="hijri-date-input2" id="hijri-date-input2" autocomplete="off" placeholder="سنة الوفاه هجري إلى" />
                         </div>
                     </div>
 
@@ -249,12 +269,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">من</label>
-                            <input type="text" class="form-control" name="version_date_hijri1" id="version_date_hijri1" autocomplete="off" placeholder="سنة الوفاه هجري من" />
+                            <input type="text" class="form-control" name="hijri-date-input1" id="hijri-date-input1" autocomplete="off" placeholder="سنة الوفاه هجري من" />
                         </div>
 
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">إلى</label>
-                            <input type="text" class="form-control" name="version_date_hijri2" id="version_date_hijri2" autocomplete="off" placeholder="سنة الوفاه هجري إلى" />
+                            <input type="text" class="form-control" name="hijri-date-input2" id="hijri-date-input2" autocomplete="off" placeholder="سنة الوفاه هجري إلى" />
                         </div>
                     </div>
 
@@ -263,17 +283,17 @@
 
             <div class="form-group">
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">قرن النسخ هجرياً</label>
+                    <label for="inputEmail4" class="form-label">سنة الوفاه ميلادي</label>
 
                     <div class="row">
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">من</label>
-                            <input type="text" class="form-control" name="version_date_century1" id="version_date_century1" autocomplete="off" placeholder="سنة الوفاه هجري من" />
+                            <input type="text" class="form-control" name="gerogian-date-input1" id="gerogian-date-input1" autocomplete="off" placeholder="سنة الوفاه ميلادي من" />
                         </div>
 
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">إلى</label>
-                            <input type="text" class="form-control" name="version_date_century2" id="version_date_century2" autocomplete="off" placeholder="سنة الوفاه هجري إلى" />
+                            <input type="text" class="form-control" name="gerogian-date-input2" id="gerogian-date-input2" autocomplete="off" placeholder="سنة الوفاه ميلادي إلى" />
                         </div>
                     </div>
 
@@ -305,11 +325,15 @@
                 <div class="col-md-6">
                     <button type="submit" class="btn btn-primary">ابحث الان</button>
                 </div>
-            </div>        
+            </div>
+
+            
+
 
         </form>
     </div>
 </div>
+
 
 
 <!-- http://hijri-datepicker.azurewebsites.net/doc -->

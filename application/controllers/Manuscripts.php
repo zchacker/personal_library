@@ -318,15 +318,8 @@ class Manuscripts extends CI_Controller {
 
     public function advanced_search_results(){
         
-        //var_dump($_POST);
-        //die;
-
-        
         if($_POST){
-
-            // $clean_values = array();
-            // array_walk($_POST, 'sanitize_post');
-
+            
             // this line of code from 
             // https://www.geeksforgeeks.org/how-to-trim-all-strings-in-an-array-in-php/
             array_walk($_POST, create_function('&$val','$val = trim($val);') );            
