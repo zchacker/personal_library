@@ -8,7 +8,8 @@ class Manuscripts extends CI_Controller {
 		parent::__construct();
 				
 		$this->load->model('home_model');
-			
+		$this->load->model('manuscripts_model');
+        
 		ini_set('upload_max_filesize','64M');
 		ini_set('max_execution_time','300');
 		ini_set('max_input_time','120');
@@ -40,7 +41,7 @@ class Manuscripts extends CI_Controller {
 
     public function index(){
 
-        $books = $this->home_model->get_books();
+        $books = $this->manuscripts_model->get_books();
 
         $this->load->library('pagination');
 		$config['total_rows'] 			= $books->num_rows();
@@ -68,7 +69,7 @@ class Manuscripts extends CI_Controller {
 
         $page_number = intval($this->uri->segment($config['uri_segment']));
 
-        $data['books'] = $this->home_model->get_books_limit($page_number , $config['per_page'])->result();
+        $data['books'] = $this->manuscripts_model->get_books_limit($page_number , $config['per_page'])->result();
         $this->pagination->initialize($config);
 
         $this->load->view('manuscripts/header');
@@ -81,58 +82,44 @@ class Manuscripts extends CI_Controller {
 
         $message = "";
     
-        if($_POST){
+        if($_POST){                        
+
             var_dump($_POST);
             die;
-            
-            $subject = $_POST['subject'];
-            $title = $_POST['title'];
-            $auther_name = $_POST['auther_name'];
-            $nickname = $_POST['nickname'];
-            $death_hijri = $_POST['death_hijri'];
-            $death_gregorian = $_POST['death_gregorian'];
-            $folders = $_POST['folders'];
-            $pages = $_POST['pages'];
-            $publisher_name = $_POST['publisher_name'];
-            $publisher_country = $_POST['publisher_country'];
-            $publisher_address = $_POST['publisher_address'];
-            $edition = $_POST['edition'];
-            $edition_date = $_POST['edition_date'];
-            $notes = $_POST['notes'];
-            $user_name   = $this->session->userdata('name');            
 
-
-            // setup right format
-            //$death_hijri     =  date("Y-m-d", strtotime( $death_hijri )); 
-            //$death_gregorian =  date("Y-m-d", strtotime( $death_gregorian )); 
-            $edition_date    =  date("Y-m-d", strtotime( $edition_date )); 
-     
-
+            $user_name   = $this->session->userdata('name');
             $data = array(
-                'subject' => $subject ,
-                'title' => $title ,
-                'auther_name' => $auther_name ,
-                'nickname' => $nickname,
-                'death_hijri' => $death_hijri,
-                'death_gregorian' => $death_gregorian ,
-                'folders' => $folders ,
-                'pages' => $pages ,
-                'publisher_name' => $publisher_name ,
-                'publisher_country' => $publisher_country ,
-                'publisher_address' => $publisher_address ,
-                'edition' => $edition ,
-                'edition_date' => $edition_date ,
-                'notes' => $notes ,
-                'user_name' => $user_name,
-                'create_date' => date("Y-m-d", time())
+                'registery_number' => 'aa999999',//$_POST['registery_number'] ,
+                'save_number' => $_POST['save_number'] ,
+                'org_art' => $_POST['org_art'] ,
+                'branch_art' => $_POST['branch_art'],
+                'org_title' => $_POST['org_title'],
+                'branch_title' => $_POST['branch_title'] ,
+                'auther_name' => $_POST['auther_name'] ,
+                'auther_nickname' => $_POST['auther_nickname'] ,
+                'auther_hijri_death' => $_POST['auther_hijri_death'] ,
+                'auther_gregorian_death' => $_POST['auther_gregorian_death'] ,
+                'auther_hijri_death_century' => $_POST['auther_hijri_death_century'] ,
+                'auther_gregorian_death_century' => $_POST['auther_gregorian_death_century'] ,
+                'translate_sources' => $_POST['translate_sources'] ,
+                'book_start' => $_POST['book_start'] , 
+                'book_end' => $_POST['book_end'] ,      
+                'pages_number' => $_POST['pages_number'] ,
+                'compelete_version' => $_POST['compelete_version'],
+                'version_date_hijri' => $_POST['version_date_hijri'],
+                'version_date_century' => $_POST['version_date_century'],
+                'copy_name' => $_POST['copy_name'],
+                'copy_location' => $_POST['copy_location'],
+                'font_type' => $_POST['font_type'],
+                'note' => $_POST['note'],
+                'custodian_asset' => $_POST['custodian_asset'],
+                'entry_name' => $user_name ,
+                'entry_date' => date("Y-m-d", time()),
             );
             
             
-            if($this->home_model->add_book($data)){
-                $message = 'تمت الاضافة بنجاح';
-                // print("added successfuly");
-                // var_dump($data);
-                // die;
+            if($this->manuscripts_model->add_book($data)){
+                $message = 'تمت الاضافة بنجاح';       
             }
             
         }
@@ -143,6 +130,7 @@ class Manuscripts extends CI_Controller {
         $uniques = array_slice($uniques, 0, 500);
         print_r($uniques);*/
 
+        // should check the Unique of the random_number
         $random_number = mt_rand(100000, 999999);       
         $random_char   = $this->generateRandomString(2);        
 

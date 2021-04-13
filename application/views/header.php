@@ -31,6 +31,7 @@
                 <a href="<?=base_url()?>home/import_file">الاستيراد</a>
                 <a href="<?=base_url()?>home/export_data">التصدير</a>
                 <a href="<?=base_url()?>home/users">المستخدمون</a>
+                <a href="<?=base_url()?>manuscripts">المخطوطات</a>
                 <a href="<?=base_url()?>home/logout">تسجيل الخروج</a>                
                 </div>            
             </div>
