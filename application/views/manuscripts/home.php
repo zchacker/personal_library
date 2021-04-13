@@ -66,14 +66,14 @@
     <table class="table table-striped table-sm align-middle">
         <thead>
             <tr>
-                <th scope="col">الرقم</th>
-                <th scope="col">عنوان الكتاب</th>
+                <th scope="col">رقم السجل</th>
+                <th scope="col">رقم الحفظ</th>
+                <th scope="col">العنوان الأصلي</th>
+                <th scope="col">العنوان الفرعي</th>
                 <th scope="col">اسم المؤلف</th>
                 <th scope="col">لقبه</th>  
-                <th scope="col">عدد المجلدات</th>
-                <th scope="col">عدد الصفحات</th>
-                <th scope="col">اسم الناشر</th>
-                <th scope="col">دولة الناشر</th>               
+                <th scope="col">عدد الأوراق</th>
+                <th scope="col">الفن الأصلي</th>               
                 <th scope="col">الحركة</th>                
             </tr>
         </thead>
@@ -82,18 +82,18 @@
             foreach ($books as $key => $value) {            
         ?>
             <tr>
-                <th scope="col"><?=$value->id?></th>
-                <td scope="col"><?=$value->subject?></td>
+                <th scope="col"><?=$value->registery_number?></th>
+                <td scope="col"><?=$value->save_number?></td>
+                <td scope="col"><?=$value->org_title?></td>
+                <td scope="col"><?=$value->branch_title?></td>
                 <td scope="col"><?=$value->auther_name?></td>
-                <td scope="col"><?=$value->nickname?></td>
-                <td scope="col"><?=$value->folders?></td>
-                <td scope="col"><?=$value->pages?></td>
-                <td scope="col"><?=$value->publisher_name?></td>
-                <td scope="col"><?=$value->publisher_country?></td>                
+                <td scope="col"><?=$value->auther_nickname?></td>
+                <td scope="col"><?=$value->pages_number?></td>
+                <td scope="col"><?=$value->org_art?></td>                
                 <td scope="col">
-                    <a href="<?=base_url().'home/edit_book/'.$value->id?>" class="text-dark">تعديل</a>
+                    <a href="<?=base_url().'manuscripts/edit_book/'.$value->id?>" class="text-dark">تعديل</a>
                     -
-                    <a href="<?=base_url().'home/view_book/'.$value->id?>" class="text-success">المزيد</a>
+                    <a href="<?=base_url().'manuscripts/view_book/'.$value->id?>" class="text-success">المزيد</a>
                 </td>                
             </tr>
         <?php } ?>

@@ -17,6 +17,35 @@ class Manuscripts_model extends CI_Model {
         return $this->db->get('manuscripts');
     }
 
+    public function get_one_books($id){
+        $this->db->where('id' , $id);
+        return $this->db->get('manuscripts');
+    }
+
+    public function update_book($id , $data){        
+        $this->db->where('id' , $id);
+        return $this->db->update('manuscripts' , $data);
+    }
+
+    public function delete_book($id){
+        $this->db->where('id' , $id);
+        return $this->db->delete('manuscripts');
+    }
+
+    // return result based on query
+    public function search_books($key , $query){
+        $this->db->like($key  , $query);
+        return $this->db->get('manuscripts');
+    }
+
+    // search limit
+    public function search_books_limit($key , $query , $start , $limit){   
+        $this->db->like($key  , $query);        
+        $this->db->order_by("id", "ASC");
+        $this->db->limit($limit, $start);
+        return $this->db->get('manuscripts');
+    }
+
 }
 
 ?>

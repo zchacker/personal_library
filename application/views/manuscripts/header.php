@@ -28,9 +28,9 @@
             <div class="col-2">
                 <div class="sidenav">
                 <a href="<?=base_url()?>manuscripts">الرئيسية</a>
-                <a href="<?=base_url()?>manuscripts/import_file">الاستيراد</a>
-                <a href="<?=base_url()?>manuscripts/export_data">التصدير</a>
-                <a href="<?=base_url()?>manuscripts/users">المستخدمون</a>
+                <!-- <a href="<?=base_url()?>manuscripts/import_file">الاستيراد</a> -->
+                <!-- <a href="<?=base_url()?>manuscripts/export_data">التصدير</a> -->
+                <!-- <a href="<?=base_url()?>manuscripts/users">المستخدمون</a> -->
                 <a href="<?=base_url()?>home">المطبوعات</a>
                 <a href="<?=base_url()?>home/logout">تسجيل الخروج</a>                
                 </div>            
