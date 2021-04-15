@@ -796,7 +796,41 @@ class Home extends CI_Controller {
     }
 
     public function test(){
-        $this->load->view('test');
+
+        /*$x = 'a';
+        while ($x != 'z')         // of course you can take that to zzz or beyond etc
+        {
+            $values[] = $x++;       // A simple range() call will not work for multiple characters
+        }
+        $values[] = $x;
+
+        $y = 'A';
+        while ($y != 'Z')         // of course you can take that to zzz or beyond etc
+        {
+            $values[] = $y++;       // A simple range() call will not work for multiple characters
+        }
+        $values[] = $y;           // Now this array contains range `a - zz`
+
+        var_dump($values);
+
+
+        //Step 2:  Provide reference
+        $str = 'z';
+
+        //Step 3: Move next or back
+        //echo $values[array_search(strtolower($str), $values) ];   // Previous = aa
+        echo $values[array_search( $str , $values) ];   // Previous = aa
+        echo '<br/>';
+        echo $values[array_search($str , $values) + 1];   // Next     = ac*/
+
+        echo $this->sequance('aa000100');
+
+        // for ($letter = 'AA'; $letter !== 'AAA'; $letter++){
+        //     foreach (range(1, 999) as $number) {
+        //             echo $letter.str_pad($number, 6, '0', STR_PAD_LEFT)."\n";
+        //     }
+        // }
+        // $this->load->view('test');
     }
 
     // https://xpertphp.com/how-to-import-excel-and-csv-file-using-codeigniter/
@@ -911,6 +945,69 @@ class Home extends CI_Controller {
         redirect('login', 'refresh');
     }
     
+    public function sequance( $code ){
+
+        $result   = '';
+
+        // this part of code from this
+        // https://stackoverflow.com/questions/26355388/most-efficient-way-to-get-previous-letter-in-the-alphabet-using-php        
+        $x = 'a';
+        while ($x != 'z')         // of course you can take that to zzz or beyond etc
+        {
+            $values[] = $x++;       // A simple range() call will not work for multiple characters
+        }
+        $values[] = $x;
+
+        $y = 'A';
+        while ($y != 'Z')         // of course you can take that to zzz or beyond etc
+        {
+            $values[] = $y++;       // A simple range() call will not work for multiple characters
+        }
+        $values[] = $y;           // Now this array contains range `a - zz`
+
+
+        $string   = $code;
+
+        $pos      = 1;
+        $letter1   = substr($string, 0, $pos);
+        $letter2   = substr($string, 1, $pos);
+        $number    = substr($string, $pos+1 , $pos+6);
+
+        // incrase number by one also litter by one
+        if($number >= 999999){
+
+            if($letter2 == 'z' or $letter2 = 'Z'){                
+                if($letter1 == 'z' or $letter1 == 'Z'){
+                    $letter1 = 'a';
+                }else{
+                    $letter1 = $values[ array_search( $letter1 , $values) + 1];
+                }
+
+                $letter2 = 'a';
+                $number = 99;
+            }else{
+                $letter2 = $values[array_search( $letter2 , $values) + 1];
+            }
+            
+        }else{
+            $letter2 = $values[array_search( $letter2 , $values) + 1];
+        }
+            
+
+        ++$number;
+        
+        //$result = $letter1.$letter2.$number;
+        $letter = $letter1.$letter2;
+        $result = $letter.str_pad($number, 6, '0', STR_PAD_LEFT);
+
+        return $result;
+
+        // for ($letter = 'AA'; $letter !== 'AAA'; $letter++){
+        //     foreach (range(1, 999) as $number) {
+        //             echo $letter.str_pad($number, 6, '0', STR_PAD_LEFT)."\n";
+        //     }
+        // }
+    }
 
     private function sanitize_post($item, $key){
         $clean_values[$key] = trim($item);
