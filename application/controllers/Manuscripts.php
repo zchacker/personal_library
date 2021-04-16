@@ -594,21 +594,31 @@ class Manuscripts extends CI_Controller {
         $letter1   = substr($string, 0, $pos);
         $letter2   = substr($string, 1, $pos);
         $number    = substr($string, $pos+1 , $pos+6);
-
+     
         // incrase number by one also litter by one
         if($number >= 999999){
 
-            if($letter2 == 'z' or $letter2 = 'Z'){                
-                if($letter1 == 'z' or $letter1 == 'Z'){
+            if($letter2 == 'z' or $letter2 == 'Z'){                
+
+                if( $letter1 == 'z' ){
+                    $letter1 = 'A';
+                }else if( $letter1 == 'Z' ){
                     $letter1 = 'a';
                 }else{
                     $letter1 = $values[ array_search( $letter1 , $values) + 1];
                 }
 
-                $letter2 = 'a';
-                $number = 99;
+                if( $letter2 == 'z' ){
+                    $letter2 = 'A';
+                }else if( $letter2 == 'Z' ){
+                    $letter2 = 'a';
+                }
+            
+                $number  = 99;
+
             }else{
                 $letter2 = $values[array_search( $letter2 , $values) + 1];
+                $number  = 99;
             }
             
         }
