@@ -128,11 +128,20 @@ class Manuscripts extends CI_Controller {
         print_r($uniques);*/
 
         // should check the Unique of the random_number
-        $random_number = mt_rand(100000, 999999);       
+        $random_number = '';// mt_rand(100000, 999999);       
         $random_char   = $this->generateRandomString(2);        
 
+        // get last item from database
+        $code = $this->manuscripts_model->get_last_code();
+
+        if($code == NULL){
+            $random_number = 'aa000100';
+        }else{
+            $random_number = $this->sequance($code);
+        }
+
         $data['msg'] = $message;
-        $data['random_number'] = $random_char.$random_number;
+        $data['random_number'] = $random_number;// $random_char.$random_number;
         $this->load->view('manuscripts/header');
         $this->load->view('manuscripts/add_book' , $data);
         $this->load->view('manuscripts/footer');
@@ -322,6 +331,7 @@ class Manuscripts extends CI_Controller {
 
             // this line of code from 
             // https://www.geeksforgeeks.org/how-to-trim-all-strings-in-an-array-in-php/
+
             array_walk($_POST, create_function('&$val','$val = trim($val);') );            
 
             $sql = "SELECT * FROM manuscripts ";
@@ -434,7 +444,7 @@ class Manuscripts extends CI_Controller {
                 $auther_gregorian_death2 =  $_POST['auther_gregorian_death2']; 
                 $conditions[] = "auther_gregorian_death <= $auther_gregorian_death2";
             }
-//
+
             if (!empty($_POST['auther_gregorian_death_century1'])) {
                 $auther_gregorian_death_century1 =   $_POST['auther_gregorian_death_century1']; 
                 $conditions[] = "auther_gregorian_death_century >= $auther_gregorian_death_century1";
@@ -552,6 +562,68 @@ class Manuscripts extends CI_Controller {
         }
         return $randomString;
     }
+
+
+    private function sequance( $code ){
+
+        $result   = '';
+
+        // this part of code from this
+        // https://stackoverflow.com/questions/26355388/most-efficient-way-to-get-previous-letter-in-the-alphabet-using-php        
+        
+        $x = 'a';
+        while ($x != 'z')         // of course you can take that to zzz or beyond etc
+        {
+            $values[] = $x++;       // A simple range() call will not work for multiple characters
+        }
+        $values[] = $x;
+
+        $y = 'A';
+        while ($y != 'Z')         // of course you can take that to zzz or beyond etc
+        {
+            $values[] = $y++;       // A simple range() call will not work for multiple characters
+        }
+        $values[] = $y;           // Now this array contains range `a - zz`
+
+
+        $string   = $code;
+
+        $pos      = 1;
+        $letter1   = substr($string, 0, $pos);
+        $letter2   = substr($string, 1, $pos);
+        $number    = substr($string, $pos+1 , $pos+6);
+
+        // incrase number by one also litter by one
+        if($number >= 999999){
+
+            if($letter2 == 'z' or $letter2 = 'Z'){                
+                if($letter1 == 'z' or $letter1 == 'Z'){
+                    $letter1 = 'a';
+                }else{
+                    $letter1 = $values[ array_search( $letter1 , $values) + 1];
+                }
+
+                $letter2 = 'a';
+                $number = 99;
+            }else{
+                $letter2 = $values[array_search( $letter2 , $values) + 1];
+            }
+            
+        }else{
+            $letter2 = $values[array_search( $letter2 , $values) + 1];
+        }
+            
+        ++$number;
+        
+        // this code from
+        // https://stackoverflow.com/questions/38930437/serial-number-with-alphabetes-and-numbers
+        
+        $letter = $letter1.$letter2;
+        $result = $letter.str_pad($number, 6, '0', STR_PAD_LEFT);
+
+        return $result;
+    }
+
 
 }
 

@@ -823,7 +823,14 @@ class Home extends CI_Controller {
         echo '<br/>';
         echo $values[array_search($str , $values) + 1];   // Next     = ac*/
 
-        echo $this->sequance('aa000100');
+        $result = $this->home_model->get_last_code();     
+
+        if($result == NULL)
+            return;
+
+        print_r( $result[0]['registery_number'] .'<br/>' );
+
+        print_r($this->sequance($result[0]['registery_number']));
 
         // for ($letter = 'AA'; $letter !== 'AAA'; $letter++){
         //     foreach (range(1, 999) as $number) {
@@ -945,12 +952,13 @@ class Home extends CI_Controller {
         redirect('login', 'refresh');
     }
     
-    public function sequance( $code ){
+    private function sequance( $code ){
 
         $result   = '';
 
         // this part of code from this
         // https://stackoverflow.com/questions/26355388/most-efficient-way-to-get-previous-letter-in-the-alphabet-using-php        
+        
         $x = 'a';
         while ($x != 'z')         // of course you can take that to zzz or beyond etc
         {
@@ -993,20 +1001,15 @@ class Home extends CI_Controller {
             $letter2 = $values[array_search( $letter2 , $values) + 1];
         }
             
-
         ++$number;
         
-        //$result = $letter1.$letter2.$number;
+        // this code from
+        // https://stackoverflow.com/questions/38930437/serial-number-with-alphabetes-and-numbers
+        
         $letter = $letter1.$letter2;
         $result = $letter.str_pad($number, 6, '0', STR_PAD_LEFT);
 
         return $result;
-
-        // for ($letter = 'AA'; $letter !== 'AAA'; $letter++){
-        //     foreach (range(1, 999) as $number) {
-        //             echo $letter.str_pad($number, 6, '0', STR_PAD_LEFT)."\n";
-        //     }
-        // }
     }
 
     private function sanitize_post($item, $key){

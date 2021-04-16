@@ -50,6 +50,18 @@ class Manuscripts_model extends CI_Model {
         return $this->db->query($sql);
     }
     
+    public function get_last_code(){
+        // registery_number
+        $result = NULL;
+        $query = $this->db->query("SELECT * FROM manuscripts ORDER BY id DESC LIMIT 1");
+        
+        if($query->num_rows() > 0){
+            $result = $query->result_array();
+        }
+        
+        return $result;
+    }
+
 }
 
 ?>

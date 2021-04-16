@@ -176,6 +176,14 @@ class Home_model extends CI_Model {
         return $this->db->query($sql);
     }
 
+
+    public function get_last_code(){
+        // registery_number
+        $query = $this->db->query("SELECT * FROM manuscripts ORDER BY id DESC LIMIT 1");
+        $result = $query->result_array();
+        return $result;
+    }
+
 }
 
 ?>
