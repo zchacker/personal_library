@@ -48,24 +48,28 @@
     <input type="text" class="form-control" name="auther_nickname" value="<?=$book->auther_nickname?>" autocomplete="off" placeholder="لقبه" required/>
   </div>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">تاريخ وفاته هجريا</label>
-    <input type="number" class="form-control" name="auther_hijri_death" value="<?=$book->auther_hijri_death?>" autocomplete="off" placeholder="تاريخ وفاته هجريا" required />
+    <label for="inputEmail4" class="form-label">تاريخ وفاته </label>
+    <input type="number" class="form-control" name="auther_hijri_death" value="<?=$book->auther_hijri_death?>" autocomplete="off" placeholder="تاريخ وفاته " required />
   </div>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">قرن وفاته هجريا</label>
-    <input type="number" class="form-control" maxlength="2" max="15" value="<?=$book->auther_hijri_death_century?>" name="auther_hijri_death_century" id="auther_hijri_death_century" autocomplete="off" placeholder="قرن وفاته هجريا" required /> 
+    <label for="inputEmail4" class="form-label">قرن وفاته </label>
+    <input type="number" class="form-control" maxlength="2" max="15" value="<?=$book->auther_hijri_death_century?>" name="auther_hijri_death_century" id="auther_hijri_death_century" autocomplete="off" placeholder="قرن وفاته " required /> 
   </div>
-  <div class="col-md-6">
+  <!-- <div class="col-md-6">
     <label for="inputEmail4" class="form-label">تاريخ وفاته ميلاديا</label>
     <input type="number" class="form-control" name="auther_gregorian_death" value="<?=$book->auther_gregorian_death?>" autocomplete="off" placeholder="تاريخ وفاته ميلاديا" required />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">قرن وفاته ميلاديا</label>
     <input type="number" class="form-control" maxlength="2" max="21" value="<?=$book->auther_gregorian_death_century?>" name="auther_gregorian_death_century" autocomplete="off" placeholder="قرن وفاته ميلاديا" required/>
-  </div>
+  </div> -->
   <div class="col-md-12">
     <label for="inputEmail4" class="form-label">مصادر ترجمته</label>
     <input type="text" class="form-control" name="translate_sources" id="translate_sources" value="<?=$book->translate_sources?>" autocomplete="off" placeholder="مصادر ترجمته" required/>
+  </div>
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">مصادر العنوان</label>
+    <input type="text" class="form-control" name="title_sources" id="title_sources" value="<?=$book->title_sources?>" autocomplete="off" placeholder="مصادر ترجمته" required/>
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">بداية المخطوط</label>
@@ -84,12 +88,12 @@
     <input type="text" class="form-control" name="compelete_version" id="compelete_version" value="<?=$book->compelete_version?>" autocomplete="off" placeholder="اكتمال النسخة" required/>
   </div>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">تاريخ النسخ هجريا</label>
-    <input type="number" class="form-control" name="version_date_hijri" id="version_date_hijri" value="<?=$book->version_date_hijri?>" autocomplete="off" placeholder="تاريخ النسخ هجريا" required />
+    <label for="inputEmail4" class="form-label">تاريخ النسخ </label>
+    <input type="number" class="form-control" name="version_date_hijri" id="version_date_hijri" value="<?=$book->version_date_hijri?>" autocomplete="off" placeholder="تاريخ النسخ " required />
   </div>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">قرن النسخ هجريا</label>
-    <input type="number" class="form-control" maxlength="2" max="15" value="<?=$book->version_date_century?>" name="version_date_century" id="version_date_century" autocomplete="off" placeholder="قرن النسخ هجريا" required />
+    <label for="inputEmail4" class="form-label">قرن النسخ </label>
+    <input type="number" class="form-control" maxlength="2" max="15" value="<?=$book->version_date_century?>" name="version_date_century" id="version_date_century" autocomplete="off" placeholder="قرن النسخ " required />
   </div>
   <div class="col-md-4">
     <label for="inputEmail4" class="form-label">اسم الناسخ</label>
@@ -103,11 +107,11 @@
     <label for="inputEmail4" class="form-label">نوع الخط</label>
     <input type="text" class="form-control" name="font_type" id="font_type" value="<?=$book->font_type?>" autocomplete="off" placeholder="نوع الخط" required/>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-12">
     <label for="inputEmail4" class="form-label">ملحوظة</label>
     <input type="text" class="form-control" name="note" id="note" value="<?=$book->note?>" autocomplete="off" placeholder="ملحوظة" required/>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-12">
     <label for="inputEmail4" class="form-label">جهة حفظ الأصل</label>
     <input type="text" class="form-control" name="custodian_asset" id="custodian_asset" value="<?=$book->custodian_asset?>" autocomplete="off" placeholder="جهة حفظ الأصل" required/>
   </div>  

@@ -4,7 +4,7 @@
 <div class="row g-3">
 
     <div class="col-md-6">
-        <p><strong>رقم السجل: </strong> <?=$book->registery_number?></p>
+        <p><strong>رقم السجل: </strong> <?=trim($book->registery_number)?></p>
     </div>
     <div class="col-md-6">
         <p><strong>رقم الحفظ: </strong> <?=$book->save_number?> </p>
@@ -28,19 +28,22 @@
         <p><strong>لقبه: </strong> <?=$book->auther_nickname?></p>
     </div>
     <div class="col-md-6">
-        <p><strong>تاريخ وفاته هجريا: </strong> <?=$book->auther_hijri_death?></p>
+        <p><strong>تاريخ وفاته: </strong> <?=$book->auther_hijri_death?></p>
     </div>
     <div class="col-md-6">
-        <p><strong>قرن وفاته هجريا: </strong> <?=$book->auther_hijri_death_century?></p>
+        <p><strong>قرن وفاته: </strong> <?=$book->auther_hijri_death_century?></p>
     </div>
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
         <p><strong>تاريخ وفاته ميلاديا: </strong> <?=$book->auther_gregorian_death?></p>
     </div>
     <div class="col-md-6">
         <p><strong>قرن وفاته ميلاديا: </strong> <?=$book->auther_gregorian_death_century?></p>
-    </div>
+    </div> -->
     <div class="col-md-12">
         <p><strong>مصادر ترجمته: </strong> <?=$book->translate_sources?></p>
+    </div>
+    <div class="col-md-12">
+        <p><strong>مصادر العنوان: </strong> <?=$book->title_sources?></p>
     </div>
     <div class="col-md-6">
         <p><strong>بداية المخطوط: </strong> <?=$book->book_start?></p>
@@ -55,10 +58,10 @@
         <p><strong>اكتمال النسخة: </strong> <?=$book->compelete_version?></p>
     </div>
     <div class="col-md-6">
-        <p><strong>تاريخ النسخ هجريا: </strong> <?=$book->version_date_hijri?></p>
+        <p><strong>تاريخ النسخ: </strong> <?=$book->version_date_hijri?></p>
     </div>
     <div class="col-md-6">
-        <p><strong>قرن النسخ هجريا: </strong> <?=$book->version_date_century?></p>
+        <p><strong>قرن النسخ: </strong> <?=$book->version_date_century?></p>
     </div>
     <div class="col-md-6">
         <p><strong>اسم الناسخ: </strong> <?=$book->copy_name?></p>
@@ -72,7 +75,7 @@
     <div class="col-md-12">
         <p><strong>ملحوظة: </strong> <?=$book->note?></p>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-12">
         <p><strong>جهة حفظ الأصل: </strong> <?=$book->custodian_asset?></p>
     </div>
     <div class="col-md-6">

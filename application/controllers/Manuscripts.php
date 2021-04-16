@@ -95,10 +95,11 @@ class Manuscripts extends CI_Controller {
                 'auther_name' => $_POST['auther_name'] ,
                 'auther_nickname' => $_POST['auther_nickname'] ,
                 'auther_hijri_death' => $_POST['auther_hijri_death'] ,
-                'auther_gregorian_death' => $_POST['auther_gregorian_death'] ,
+                // 'auther_gregorian_death' => $_POST['auther_gregorian_death'] ,
                 'auther_hijri_death_century' => $_POST['auther_hijri_death_century'] ,
-                'auther_gregorian_death_century' => $_POST['auther_gregorian_death_century'] ,
+                // 'auther_gregorian_death_century' => $_POST['auther_gregorian_death_century'] ,
                 'translate_sources' => $_POST['translate_sources'] ,
+                'title_sources' => $_POST['title_sources'] ,
                 'book_start' => $_POST['book_start'] , 
                 'book_end' => $_POST['book_end'] ,      
                 'pages_number' => $_POST['pages_number'] ,
@@ -137,7 +138,7 @@ class Manuscripts extends CI_Controller {
         if($code == NULL){
             $random_number = 'aa000100';
         }else{
-            $random_number = $this->sequance($code);
+            $random_number = $this->sequance($code[0]['registery_number']);
         }
 
         $data['msg'] = $message;
@@ -195,10 +196,11 @@ class Manuscripts extends CI_Controller {
                 'auther_name' => $_POST['auther_name'] ,
                 'auther_nickname' => $_POST['auther_nickname'] ,
                 'auther_hijri_death' => $_POST['auther_hijri_death'] ,
-                'auther_gregorian_death' => $_POST['auther_gregorian_death'] ,
+                // 'auther_gregorian_death' => $_POST['auther_gregorian_death'] ,
                 'auther_hijri_death_century' => $_POST['auther_hijri_death_century'] ,
-                'auther_gregorian_death_century' => $_POST['auther_gregorian_death_century'] ,
+                // 'auther_gregorian_death_century' => $_POST['auther_gregorian_death_century'] ,
                 'translate_sources' => $_POST['translate_sources'] ,
+                'title_sources' => $_POST['title_sources'] ,
                 'book_start' => $_POST['book_start'] , 
                 'book_end' => $_POST['book_end'] ,      
                 'pages_number' => $_POST['pages_number'] ,
@@ -609,9 +611,11 @@ class Manuscripts extends CI_Controller {
                 $letter2 = $values[array_search( $letter2 , $values) + 1];
             }
             
-        }else{
-            $letter2 = $values[array_search( $letter2 , $values) + 1];
         }
+        /*else{
+            
+            $letter2 = $values[array_search( $letter2 , $values) + 1];
+        }*/
             
         ++$number;
         

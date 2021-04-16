@@ -17,7 +17,7 @@
 
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">رقم السجل</label>    
-    <input type="text" class="form-control" name="registery_number" value="<?=$random_number?>" id="registery_number" placeholder="رقم السجل" required />
+    <input type="text" class="form-control" minlength="8" name="registery_number" value="<?=$random_number?>" id="registery_number" placeholder="رقم السجل" required />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">رقم الحفظ</label>
@@ -48,24 +48,28 @@
     <input type="text" class="form-control" name="auther_nickname" autocomplete="off" placeholder="لقبه" required/>
   </div>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">تاريخ وفاته هجريا</label>
-    <input type="number" class="form-control" name="auther_hijri_death" autocomplete="off" placeholder="تاريخ وفاته هجريا" required />
+    <label for="inputEmail4" class="form-label">تاريخ وفاته </label>
+    <input type="number" class="form-control" name="auther_hijri_death" autocomplete="off" placeholder="تاريخ وفاته " required />
   </div>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">قرن وفاته هجريا</label>
-    <input type="number" class="form-control" maxlength="2" max="15" name="auther_hijri_death_century" id="auther_hijri_death_century" autocomplete="off" placeholder="قرن وفاته هجريا" required /> 
+    <label for="inputEmail4" class="form-label">قرن وفاته </label>
+    <input type="number" class="form-control" maxlength="2" max="15" name="auther_hijri_death_century" id="auther_hijri_death_century" autocomplete="off" placeholder="قرن وفاته " required /> 
   </div>
-  <div class="col-md-6">
+  <!-- <div class="col-md-6">
     <label for="inputEmail4" class="form-label">تاريخ وفاته ميلاديا</label>
     <input type="number" class="form-control" name="auther_gregorian_death" autocomplete="off" placeholder="تاريخ وفاته ميلاديا" required />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">قرن وفاته ميلاديا</label>
     <input type="number" class="form-control" maxlength="2" max="21" name="auther_gregorian_death_century" autocomplete="off" placeholder="قرن وفاته ميلاديا" required/>
-  </div>
+  </div> -->
   <div class="col-md-12">
     <label for="inputEmail4" class="form-label">مصادر ترجمته</label>
     <input type="text" class="form-control" name="translate_sources" id="translate_sources" autocomplete="off" placeholder="مصادر ترجمته" required/>
+  </div>
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">مصادر العنوان</label>
+    <input type="text" class="form-control" name="title_sources" id="title_sources" autocomplete="off" placeholder="مصادر ترجمته" required/>
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">بداية المخطوط</label>
@@ -84,12 +88,12 @@
     <input type="text" class="form-control" name="compelete_version" id="compelete_version" autocomplete="off" placeholder="اكتمال النسخة" required/>
   </div>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">تاريخ النسخ هجريا</label>
-    <input type="number" class="form-control" name="version_date_hijri" id="version_date_hijri" autocomplete="off" placeholder="تاريخ النسخ هجريا" required />
+    <label for="inputEmail4" class="form-label">تاريخ النسخ </label>
+    <input type="number" class="form-control" name="version_date_hijri" id="version_date_hijri" autocomplete="off" placeholder="تاريخ النسخ " required />
   </div>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">قرن النسخ هجريا</label>
-    <input type="number" class="form-control" maxlength="2" max="15" name="version_date_century" id="version_date_century" autocomplete="off" placeholder="قرن النسخ هجريا" required />
+    <label for="inputEmail4" class="form-label">قرن النسخ </label>
+    <input type="number" class="form-control" maxlength="2" max="15" name="version_date_century" id="version_date_century" autocomplete="off" placeholder="قرن النسخ " required />
   </div>
   <div class="col-md-4">
     <label for="inputEmail4" class="form-label">اسم الناسخ</label>
@@ -103,11 +107,11 @@
     <label for="inputEmail4" class="form-label">نوع الخط</label>
     <input type="text" class="form-control" name="font_type" id="font_type" autocomplete="off" placeholder="نوع الخط" required/>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-12">
     <label for="inputEmail4" class="form-label">ملحوظة</label>
     <input type="text" class="form-control" name="note" id="note" autocomplete="off" placeholder="ملحوظة" required/>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-12">
     <label for="inputEmail4" class="form-label">جهة حفظ الأصل</label>
     <input type="text" class="form-control" name="custodian_asset" id="custodian_asset" autocomplete="off" placeholder="جهة حفظ الأصل" required/>
   </div>  
@@ -238,11 +242,11 @@
         return false;
     }
 
-    var auther_gregorian_death_century = document.getElementById('auther_gregorian_death_century');
+    /*var auther_gregorian_death_century = document.getElementById('auther_gregorian_death_century');
     auther_gregorian_death_century.oninvalid = function(event) {
         event.target.setCustomValidity('الرجاء ان لا يتجاوز الرقم 21');
         return false;
-    }
+    }*/
     
     var version_date_century = document.getElementById('version_date_century');
     version_date_century.oninvalid = function(event) {
