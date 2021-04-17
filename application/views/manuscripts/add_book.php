@@ -17,103 +17,103 @@
 
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">رقم السجل</label>    
-    <input type="text" class="form-control" minlength="8" name="registery_number" value="<?=$random_number?>" id="registery_number" placeholder="رقم السجل" required />
+    <input type="text" class="form-control" minlength="8" name="registery_number" value="<?=$random_number?>" id="registery_number" placeholder="رقم السجل"  />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">رقم الحفظ</label>
-    <input type="text" class="form-control" name="save_number" id="save_number" placeholder="رقم الحفظ" required/>
+    <input type="text" class="form-control" name="save_number" id="save_number" placeholder="رقم الحفظ" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">الفن الأصلي</label>
-    <input type="text" class="form-control" name="org_art" id="org_art" placeholder="الفن الأصلي" required />
+    <input type="text" class="form-control" name="org_art" id="org_art" placeholder="الفن الأصلي"  />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">الفن الفرعي</label>
-    <input type="text" class="form-control" name="branch_art" id="branch_art" placeholder="الفن الفرعي" required />
+    <input type="text" class="form-control" name="branch_art" id="branch_art" placeholder="الفن الفرعي"  />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">العنوان الأصلي</label>
-    <input type="text" class="form-control" name="org_title" id="org_title" autocomplete="off" placeholder="العنوان الأصلي" required />
+    <input type="text" class="form-control" name="org_title" id="org_title" autocomplete="off" placeholder="العنوان الأصلي"  />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">العنوان الفرعي</label>
-    <input type="text" class="form-control" name="branch_title" id="branch_title" autocomplete="off" placeholder="العنوان الفرعي" required/>
+    <input type="text" class="form-control" name="branch_title" id="branch_title" autocomplete="off" placeholder="العنوان الفرعي" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">اسم المؤلف</label>
-    <input type="text" class="form-control" name="auther_name" autocomplete="off" placeholder="اسم المؤلف" required/>
+    <input type="text" class="form-control" name="auther_name" autocomplete="off" placeholder="اسم المؤلف" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">لقبه</label>
-    <input type="text" class="form-control" name="auther_nickname" autocomplete="off" placeholder="لقبه" required/>
+    <input type="text" class="form-control" name="auther_nickname" autocomplete="off" placeholder="لقبه" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">تاريخ وفاته </label>
-    <input type="number" class="form-control" name="auther_hijri_death" autocomplete="off" placeholder="تاريخ وفاته " required />
+    <input type="number" class="form-control" name="auther_hijri_death" autocomplete="off" placeholder="تاريخ وفاته "  />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">قرن وفاته </label>
-    <input type="number" class="form-control" maxlength="2" max="15" name="auther_hijri_death_century" id="auther_hijri_death_century" autocomplete="off" placeholder="قرن وفاته " required /> 
+    <input type="number" class="form-control" maxlength="2" max="15" name="auther_hijri_death_century" id="auther_hijri_death_century" autocomplete="off" placeholder="قرن وفاته "  /> 
   </div>
   <!-- <div class="col-md-6">
     <label for="inputEmail4" class="form-label">تاريخ وفاته ميلاديا</label>
-    <input type="number" class="form-control" name="auther_gregorian_death" autocomplete="off" placeholder="تاريخ وفاته ميلاديا" required />
+    <input type="number" class="form-control" name="auther_gregorian_death" autocomplete="off" placeholder="تاريخ وفاته ميلاديا"  />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">قرن وفاته ميلاديا</label>
-    <input type="number" class="form-control" maxlength="2" max="21" name="auther_gregorian_death_century" autocomplete="off" placeholder="قرن وفاته ميلاديا" required/>
+    <input type="number" class="form-control" maxlength="2" max="21" name="auther_gregorian_death_century" autocomplete="off" placeholder="قرن وفاته ميلاديا" />
   </div> -->
   <div class="col-md-12">
     <label for="inputEmail4" class="form-label">مصادر ترجمته</label>
-    <input type="text" class="form-control" name="translate_sources" id="translate_sources" autocomplete="off" placeholder="مصادر ترجمته" required/>
+    <input type="text" class="form-control" name="translate_sources" id="translate_sources" autocomplete="off" placeholder="مصادر ترجمته" />
   </div>
   <div class="col-md-12">
     <label for="inputEmail4" class="form-label">مصادر العنوان</label>
-    <input type="text" class="form-control" name="title_sources" id="title_sources" autocomplete="off" placeholder="مصادر ترجمته" required/>
+    <input type="text" class="form-control" name="title_sources" id="title_sources" autocomplete="off" placeholder="مصادر ترجمته" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">بداية المخطوط</label>
-    <input type="text" class="form-control" name="book_start" id="book_start" autocomplete="off" placeholder="بداية المخطوط" required/>
+    <input type="text" class="form-control" name="book_start" id="book_start" autocomplete="off" placeholder="بداية المخطوط" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">نهاية المخطوط</label>
-    <input type="text" class="form-control" name="book_end" id="book_end" autocomplete="off" placeholder="نهاية المخطوط" required/>
+    <input type="text" class="form-control" name="book_end" id="book_end" autocomplete="off" placeholder="نهاية المخطوط" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">عدد الأوراق</label>
-    <input type="number" class="form-control" name="pages_number" id="pages_number" autocomplete="off" placeholder="عدد الأوراق" required/>
+    <input type="number" class="form-control" name="pages_number" id="pages_number" autocomplete="off" placeholder="عدد الأوراق" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">اكتمال النسخة</label>
-    <input type="text" class="form-control" name="compelete_version" id="compelete_version" autocomplete="off" placeholder="اكتمال النسخة" required/>
+    <input type="text" class="form-control" name="compelete_version" id="compelete_version" autocomplete="off" placeholder="اكتمال النسخة" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">تاريخ النسخ </label>
-    <input type="number" class="form-control" name="version_date_hijri" id="version_date_hijri" autocomplete="off" placeholder="تاريخ النسخ " required />
+    <input type="number" class="form-control" name="version_date_hijri" id="version_date_hijri" autocomplete="off" placeholder="تاريخ النسخ "  />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">قرن النسخ </label>
-    <input type="number" class="form-control" maxlength="2" max="15" name="version_date_century" id="version_date_century" autocomplete="off" placeholder="قرن النسخ " required />
+    <input type="number" class="form-control" maxlength="2" max="15" name="version_date_century" id="version_date_century" autocomplete="off" placeholder="قرن النسخ "  />
   </div>
   <div class="col-md-4">
     <label for="inputEmail4" class="form-label">اسم الناسخ</label>
-    <input type="text" class="form-control" name="copy_name" id="copy_name" autocomplete="off" placeholder="اسم الناسخ" required/>
+    <input type="text" class="form-control" name="copy_name" id="copy_name" autocomplete="off" placeholder="اسم الناسخ" />
   </div>
   <div class="col-md-4">
     <label for="inputEmail4" class="form-label">مكان النسخ</label>
-    <input type="text" class="form-control" name="copy_location" id="copy_location" autocomplete="off" placeholder="مكان النسخ" required/>
+    <input type="text" class="form-control" name="copy_location" id="copy_location" autocomplete="off" placeholder="مكان النسخ" />
   </div>
   <div class="col-md-4">
     <label for="inputEmail4" class="form-label">نوع الخط</label>
-    <input type="text" class="form-control" name="font_type" id="font_type" autocomplete="off" placeholder="نوع الخط" required/>
+    <input type="text" class="form-control" name="font_type" id="font_type" autocomplete="off" placeholder="نوع الخط" />
   </div>
   <div class="col-md-12">
     <label for="inputEmail4" class="form-label">ملحوظة</label>
-    <input type="text" class="form-control" name="note" id="note" autocomplete="off" placeholder="ملحوظة" required/>
+    <input type="text" class="form-control" name="note" id="note" autocomplete="off" placeholder="ملحوظة" />
   </div>
   <div class="col-md-12">
     <label for="inputEmail4" class="form-label">جهة حفظ الأصل</label>
-    <input type="text" class="form-control" name="custodian_asset" id="custodian_asset" autocomplete="off" placeholder="جهة حفظ الأصل" required/>
+    <input type="text" class="form-control" name="custodian_asset" id="custodian_asset" autocomplete="off" placeholder="جهة حفظ الأصل" />
   </div>  
   <div class="col-md-12">
     <br>

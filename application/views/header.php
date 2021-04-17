@@ -27,11 +27,11 @@
         <div class="row">
             <div class="col-2">
                 <div class="sidenav">
-                <a href="<?=base_url().'home'?>">الرئيسية</a>
+                <a href="<?=base_url()?>manuscripts">المخطوطات</a>
+                <a href="<?=base_url().'home'?>">المطبوعات</a>                
                 <a href="<?=base_url()?>home/import_file">الاستيراد</a>
                 <a href="<?=base_url()?>home/export_data">التصدير</a>
-                <a href="<?=base_url()?>home/users">المستخدمون</a>
-                <a href="<?=base_url()?>manuscripts">المخطوطات</a>
+                <a href="<?=base_url()?>home/users">المستخدمون</a>                
                 <a href="<?=base_url()?>home/logout">تسجيل الخروج</a>                
                 </div>            
             </div>

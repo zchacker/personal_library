@@ -1,3 +1,4 @@
+<h2>المطبوعات</h2>
 <br/>
 <div class="row">
     <a href="<?=base_url()?>home/add_book" class="btn btn-success">أضف جديد</a>
@@ -79,7 +80,7 @@
                 <td scope="col">
                     <a href="<?=base_url().'home/edit_book/'.$value->id?>" class="text-dark">تعديل</a>
                     -
-                    <a href="<?=base_url().'home/view_book/'.$value->id?>" class="text-success">المزيد</a>
+                    <a href="<?=base_url().'home/view_book/'.$value->id?>" class="text-success">عرض</a>
                 </td>                
             </tr>
         <?php } ?>

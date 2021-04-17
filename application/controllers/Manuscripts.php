@@ -136,9 +136,9 @@ class Manuscripts extends CI_Controller {
         $code = $this->manuscripts_model->get_last_code();
 
         if($code == NULL){
-            $random_number = 'aa000100';
+            $random_number = 'Az000100';
         }else{
-            $random_number = $this->sequance($code[0]['registery_number']);
+            $random_number = $this->sequance2($code[0]['registery_number']);
         }
 
         $data['msg'] = $message;
@@ -638,6 +638,45 @@ class Manuscripts extends CI_Controller {
         return $result;
     }
 
+    private function sequance2( $code ){
+
+        $result   = '';
+
+        // this part of code from this
+        // https://stackoverflow.com/questions/26355388/most-efficient-way-to-get-previous-letter-in-the-alphabet-using-php        
+        
+        $x = 'a';
+        while ($x != 'z')         // of course you can take that to zzz or beyond etc
+        {
+            $values[] = $x++;       // A simple range() call will not work for multiple characters
+        }
+        $values[] = $x;
+
+        $y = 'A';
+        while ($y != 'Z')         // of course you can take that to zzz or beyond etc
+        {
+            $values[] = $y++;       // A simple range() call will not work for multiple characters
+        }
+        $values[] = $y;           // Now this array contains range `a - zz`
+
+
+        $string   = $code;
+
+        $pos      = 1;
+        $letter1   = substr($string, 0, $pos);
+        $letter2   = substr($string, 1, $pos);
+        $number    = substr($string, $pos+1 , $pos+6);
+          
+        ++$number;
+        
+        // this code from
+        // https://stackoverflow.com/questions/38930437/serial-number-with-alphabetes-and-numbers
+        
+        $letter = 'Az';
+        $result = $letter.str_pad($number, 6, '0', STR_PAD_LEFT);
+
+        return $result;
+    }
 
 }
 
