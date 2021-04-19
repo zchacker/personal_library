@@ -77,8 +77,29 @@
 
             <div class="form-group">
                 <div class="col-md-6">
+                    <label for="">تاريخ وفاته</label>
+                    <input type="number" name="auther_hijri_death" class="form-control" placeholder=" لقبه" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label for="">قرن وفاته</label>
+                    <input type="number" name="auther_hijri_death_century" class="form-control" placeholder=" لقبه" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
                     <label for="">مصادر ترجمته</label>
                     <input type="text" name="translate_sources" class="form-control" placeholder=" مصادر ترجمته" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label for="">مصادر العنوان</label>
+                    <input type="text" name="title_sources" class="form-control" placeholder=" مصادر العنوان" />
                 </div>
             </div>
 
@@ -107,6 +128,20 @@
                 <div class="col-md-6">
                     <label for="">اكتمال النسخة</label>
                     <input type="text" name="compelete_version" class="form-control" placeholder=" اكتمال النسخة" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label for="">تاريخ النسخ</label>
+                    <input type="number" name="version_date_hijri" class="form-control" placeholder=" تاريخ النسخ" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label for="">قرن النسخ</label>
+                    <input type="number" name="version_date_century" class="form-control" placeholder=" قرن النسخ" />
                 </div>
             </div>
 
@@ -153,6 +188,13 @@
             </div>
 
             <div class="form-group">
+                <div class="col-md-6">
+                    <label for="">تاريخ ادخال البيانات</label>
+                    <input type="date" name="entry_date" class="form-control" placeholder=" التاريخ" />
+                </div>
+            </div>
+
+            <!--<div class="form-group">
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">تاريخ وفاة المؤلف هجريا</label>
 
@@ -283,7 +325,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div>-->
 
             <hr/>
 

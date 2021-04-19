@@ -340,11 +340,11 @@ class Manuscripts extends CI_Controller {
             $conditions = array();
 
             if (!empty($_POST['registery_number'])) {
-                $conditions[] = "registery_number LIKE '%$_POST[registery_number]%'";
+                $conditions[] = "registery_number = '$_POST[registery_number]'";
             }
 
             if (!empty($_POST['save_number'])) {
-                $conditions[] = "save_number LIKE '%$_POST[save_number]%'";
+                $conditions[] = "save_number = '$_POST[save_number]'";
             }
 
             if (!empty($_POST['org_art'])) {
@@ -361,23 +361,31 @@ class Manuscripts extends CI_Controller {
 
             if (!empty($_POST['auther_name'])) {
                 $conditions[] = "auther_name LIKE '%$_POST[auther_name]%'";
-            }
+            }            
 
             if (!empty($_POST['auther_nickname'])) {
                 $conditions[] = "auther_nickname LIKE '%$_POST[auther_nickname]%'";
+            }
+
+            if (!empty($_POST['auther_hijri_death'])) {
+                $conditions[] = "auther_hijri_death = '$_POST[auther_nickname]'";
+            }
+
+            if (!empty($_POST['auther_hijri_death_century'])) {
+                $conditions[] = "auther_hijri_death_century = '$_POST[auther_hijri_death_century]'";
             }
 
             if (!empty($_POST['translate_sources'])) {
                 $conditions[] = "translate_sources LIKE '%$_POST[translate_sources]%'";
             }
 
-            if (!empty($_POST['book_start'])) {
-                $conditions[] = "book_start LIKE '%$_POST[book_start]%'";
+            if (!empty($_POST['title_sources'])) {
+                $conditions[] = "title_sources = '$_POST[title_sources]'";
             }
 
-            if (!empty($_POST['edition'])) {
-                $conditions[] = "edition LIKE '%$_POST[edition]%'";
-            }
+            if (!empty($_POST['book_start'])) {
+                $conditions[] = "book_start LIKE '%$_POST[book_start]%'";
+            }            
 
             if (!empty($_POST['book_end'])) {
                 $conditions[] = "book_end LIKE '%$_POST[book_end]%'";
@@ -389,6 +397,14 @@ class Manuscripts extends CI_Controller {
 
             if (!empty($_POST['compelete_version'])) {
                 $conditions[] = "compelete_version LIKE '%$_POST[compelete_version]%'";
+            }
+
+            if (!empty($_POST['version_date_hijri'])) {
+                $conditions[] = "version_date_hijri = '$_POST[version_date_hijri]'";
+            }
+
+            if (!empty($_POST['version_date_century'])) {
+                $conditions[] = "version_date_century = '$_POST[version_date_century]'";
             }
 
             if (!empty($_POST['copy_name'])) {
@@ -415,9 +431,13 @@ class Manuscripts extends CI_Controller {
                 $conditions[] = "entry_name LIKE '%$_POST[entry_name]%'";
             }
 
+            if (!empty($_POST['entry_date'])) {
+                $conditions[] = "entry_date = '$_POST[entry_date]'";
+            }
+
             /* ########## dates ################ */
 
-            if (!empty($_POST['auther_hijri_death1'])) {
+            /*if (!empty($_POST['auther_hijri_death1'])) {
                 $auther_hijri_death1 =  $_POST['auther_hijri_death1']; 
                 $conditions[] = "auther_hijri_death >= $auther_hijri_death1";
             }
@@ -491,7 +511,7 @@ class Manuscripts extends CI_Controller {
             if (!empty($_POST['entry_date2'])) {
                 $entry_date2 =  $_POST['entry_date2']; 
                 $conditions[] = "entry_date <= $entry_date2";
-            }
+            }*/
 
             
             if (count($conditions) > 0) {
