@@ -22,7 +22,7 @@
                 <div class="col">
                     <select name="key" id="" class="form-control">
                         <option value="registery_number" <?php if(@$key == 'registery_number') echo 'selected';?> >رقم السجل</option>
-                        <option value="save_number" <?php if(@$key == 'save_number') echo 'selected';?>>رقم الحفظ</option>                        
+                        <option value="save_number" <?php if(@$key == 'save_number') echo 'selected';?>>رقم حفظه في المركز</option>                        
                         <option value="org_art" <?php if(@$key == 'org_art') echo 'selected';?>>الفن الأصلي</option>
                         <option value="branch_art" <?php if(@$key == 'branch_art') echo 'selected';?>>الفن الفرعي</option>
                         <option value="org_title" <?php if(@$key == 'org_title') echo 'selected';?>>العنوان الأصلي</option>
@@ -43,6 +43,7 @@
                         <option value="font_type" <?php if(@$key == 'font_type') echo 'selected';?>>نوع الخط</option>
                         <option value="note" <?php if(@$key == 'note') echo 'selected';?>>ملحوظة</option>
                         <option value="custodian_asset" <?php if(@$key == 'custodian_asset') echo 'selected';?>>جهة حفظ الأصل</option>
+                        <option value="save_number_in_asset" <?php if(@$key == 'save_number_in_asset') echo 'selected';?>>رقم حفظه فيها</option>
                         <option value="entry_name" <?php if(@$key == 'entry_name') echo 'selected';?>>اسم المدخل</option>
                         <option value="entry_date" <?php if(@$key == 'entry_date') echo 'selected';?>>تاريخ الإدخال</option>                       
                     </select>
@@ -66,7 +67,7 @@
         <thead>
             <tr>
                 <th scope="col">رقم السجل</th>
-                <th scope="col">رقم الحفظ</th>
+                <th scope="col">رقم حفظه في المركز</th>
                 <th scope="col">العنوان الأصلي</th>                
                 <th scope="col">اسم المؤلف</th>
                 <th scope="col">لقبه</th> 

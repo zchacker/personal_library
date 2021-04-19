@@ -20,8 +20,8 @@
     <input type="text" class="form-control" minlength="8" name="registery_number" value="<?=$random_number?>" id="registery_number" placeholder="رقم السجل"  />
   </div>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">رقم الحفظ</label>
-    <input type="text" class="form-control" name="save_number" id="save_number" placeholder="رقم الحفظ" />
+    <label for="inputEmail4" class="form-label">رقم حفظه في المركز</label>
+    <input type="text" class="form-control" name="save_number" id="save_number" placeholder="رقم حفظه في المركز" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">الفن الأصلي</label>
@@ -114,7 +114,11 @@
   <div class="col-md-12">
     <label for="inputEmail4" class="form-label">جهة حفظ الأصل</label>
     <input type="text" class="form-control" name="custodian_asset" id="custodian_asset" autocomplete="off" placeholder="جهة حفظ الأصل" />
-  </div>  
+  </div>
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">رقم حفظه فيها</label>
+    <input type="text" class="form-control" name="save_number_in_asset" id="save_number_in_asset" autocomplete="off" placeholder="رقم حفظه فيها" />
+  </div>    
   <div class="col-md-12">
     <br>
     <input type="submit" class="btn btn-success" value="حفظ المخطوطة" />

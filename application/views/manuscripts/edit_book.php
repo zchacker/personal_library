@@ -20,7 +20,7 @@
     <input type="text" class="form-control" name="registery_number" value="<?=$book->registery_number?>" id="registery_number" placeholder="رقم السجل"  />
   </div>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">رقم الحفظ</label>
+    <label for="inputEmail4" class="form-label">رقم حفظه في المركز</label>
     <input type="text" class="form-control" name="save_number" id="save_number" value="<?=$book->save_number?>" placeholder="رقم الحفظ" />
   </div>
   <div class="col-md-6">
@@ -115,6 +115,10 @@
     <label for="inputEmail4" class="form-label">جهة حفظ الأصل</label>
     <input type="text" class="form-control" name="custodian_asset" id="custodian_asset" value="<?=$book->custodian_asset?>" autocomplete="off" placeholder="جهة حفظ الأصل" />
   </div>  
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">رقم حفظه فيها</label>
+    <input type="text" class="form-control" name="save_number_in_asset" id="save_number_in_asset" value="<?=$book->save_number_in_asset?>" autocomplete="off" placeholder="رقم حفظه فيها" />
+  </div>     
   <div class="col-md-12">
     <br>
     <input type="hidden" class="form-control" name="id"  value="<?=$book->id?>"  required />

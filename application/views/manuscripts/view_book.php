@@ -7,7 +7,7 @@
         <p><strong>رقم السجل: </strong> <?=trim($book->registery_number)?></p>
     </div>
     <div class="col-md-6">
-        <p><strong>رقم الحفظ: </strong> <?=$book->save_number?> </p>
+        <p><strong>رقم حفظه في المركز: </strong> <?=$book->save_number?> </p>
     </div>
     <div class="col-md-6">
         <p><strong>الفن الأصلي: </strong> <?=$book->org_art?></p>
@@ -77,6 +77,9 @@
     </div>
     <div class="col-md-12">
         <p><strong>جهة حفظ الأصل: </strong> <?=$book->custodian_asset?></p>
+    </div>
+    <div class="col-md-12">
+        <p><strong>رقم حفظه فيها: </strong> <?=$book->save_number_in_asset?></p>
     </div>
     <div class="col-md-6">
         <p><strong>اسم المدخل: </strong> <?=$book->entry_name?></p>

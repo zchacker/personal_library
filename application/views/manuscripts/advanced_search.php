@@ -28,8 +28,8 @@
 
             <div class="form-group">
                 <div class="col-md-6">
-                    <label for="">رقم الحفظ</label>
-                    <input type="text" name="save_number" class="form-control" placeholder="رقم الحفظ" />
+                    <label for="">رقم حفظه في المركز</label>
+                    <input type="text" name="save_number" class="form-control" placeholder="رقم حفظه في المركز" />
                 </div>
             </div>
 
@@ -178,7 +178,14 @@
                     <label for="">جهة حفظ الأصل</label>
                     <input type="text" name="custodian_asset" class="form-control" placeholder=" جهة حفظ الأصل" />
                 </div>
-            </div>            
+            </div>     
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label for="">رقم حفظه فيها</label>
+                    <input type="text" name="save_number_in_asset" class="form-control" placeholder=" رقم حفظه فيها" />
+                </div>
+            </div>        
 
             <div class="form-group">
                 <div class="col-md-6">

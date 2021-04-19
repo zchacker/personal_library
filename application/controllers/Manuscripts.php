@@ -111,6 +111,7 @@ class Manuscripts extends CI_Controller {
                 'font_type' => $_POST['font_type'],
                 'note' => $_POST['note'],
                 'custodian_asset' => $_POST['custodian_asset'],
+                'save_number_in_asset' => $_POST['save_number_in_asset'],
                 'entry_name' => $user_name ,
                 'entry_date' => date("Y-m-d", time()),
             );
@@ -212,6 +213,7 @@ class Manuscripts extends CI_Controller {
                 'font_type' => $_POST['font_type'],
                 'note' => $_POST['note'],
                 'custodian_asset' => $_POST['custodian_asset'],
+                'save_number_in_asset' => $_POST['save_number_in_asset'],
                 'entry_name' => $user_name ,
                 'entry_date' => date("Y-m-d", time()),
             );
@@ -425,6 +427,10 @@ class Manuscripts extends CI_Controller {
 
             if (!empty($_POST['custodian_asset'])) {
                 $conditions[] = "custodian_asset LIKE '%$_POST[custodian_asset]%'";
+            }
+
+            if (!empty($_POST['save_number_in_asset'])) {
+                $conditions[] = "save_number_in_asset = '$_POST[save_number_in_asset]'";
             }
 
             if (!empty($_POST['entry_name'])) {
