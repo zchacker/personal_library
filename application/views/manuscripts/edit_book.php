@@ -120,6 +120,10 @@
     <input type="text" class="form-control" name="save_number_in_asset" id="save_number_in_asset" value="<?=$book->save_number_in_asset?>" autocomplete="off" placeholder="رقم حفظه فيها" />
   </div>     
   <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">مصدر الإدخال</label>
+    <input type="text" class="form-control" name="entry_source" id="entry_source" value="<?=$book->entry_source?>" autocomplete="off" placeholder="مصدر الإدخال" />
+  </div> 
+  <div class="col-md-12">
     <br>
     <input type="hidden" class="form-control" name="id"  value="<?=$book->id?>"  required />
     <input type="submit" class="btn btn-success" value="حفظ المخطوطة" />

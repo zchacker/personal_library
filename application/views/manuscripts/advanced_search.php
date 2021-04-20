@@ -185,7 +185,14 @@
                     <label for="">رقم حفظه فيها</label>
                     <input type="text" name="save_number_in_asset" class="form-control" placeholder=" رقم حفظه فيها" />
                 </div>
-            </div>        
+            </div>       
+
+             <div class="form-group">
+                <div class="col-md-6">
+                    <label for="">مصدر الإدخال</label>
+                    <input type="text" name="entry_source" class="form-control" placeholder=" مصدر الإدخال" />
+                </div>
+            </div>   
 
             <div class="form-group">
                 <div class="col-md-6">

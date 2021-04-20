@@ -81,6 +81,9 @@
     <div class="col-md-12">
         <p><strong>رقم حفظه فيها: </strong> <?=$book->save_number_in_asset?></p>
     </div>
+    <div class="col-md-12">
+        <p><strong>مصدر الإدخال: </strong> <?=$book->entry_source?></p>
+    </div>
     <div class="col-md-6">
         <p><strong>اسم المدخل: </strong> <?=$book->entry_name?></p>
     </div>
