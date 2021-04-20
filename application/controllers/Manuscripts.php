@@ -436,7 +436,7 @@ class Manuscripts extends CI_Controller {
             }
 
             if (!empty($_POST['entry_source'])) {
-                $conditions[] = "entry_source LIKE '%$_POST[entry_source]%'";
+                $conditions[] = "entry_source = '$_POST[entry_source]'";
             }
         
 
