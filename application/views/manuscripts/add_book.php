@@ -96,7 +96,7 @@
       <a href="javascript:void(0)" onclick="setValue('الطلاسم والسحر')">الطلاسم والسحر</a>         
       <a href="javascript:void(0)" onclick="setValue('الفراسة والكف')">الفراسة والكف</a>         
                
-      <!-- <a href="javascript:void(0)" onclick="setValue('about')">About</a>          -->
+      <!-- <a href="javascript:void(0)" onclick="setValue('about')">About</a> -->
     </div>
   </div>
   <div class="col-md-6">
@@ -157,7 +157,15 @@
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">اكتمال النسخة</label>
-    <input type="text" class="form-control" name="compelete_version" id="compelete_version" autocomplete="off" placeholder="اكتمال النسخة" />
+    <input type="text" class="form-control" name="compelete_version" id="compelete_version" onkeyup="compelete_versionFilterFunction()" autocomplete="off" placeholder="اكتمال النسخة" />
+    <div id="myDropdown2" class="dropdown-content">
+      <a href="javascript:void(0)" onclick="compelete_versionSetValue('تامة')">تامة</a>
+      <a href="javascript:void(0)" onclick="compelete_versionSetValue('تامة بالتلفيق')">تامة بالتلفيق</a>
+      <a href="javascript:void(0)" onclick="compelete_versionSetValue('ناقصة')">ناقصة</a>
+      <a href="javascript:void(0)" onclick="compelete_versionSetValue('ناقصة مع تلفيق')">ناقصة مع تلفيق</a>
+      
+      <!-- <a href="javascript:void(0)" onclick="compelete_versionSetValue('about')">About</a> -->
+    </div>
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">تاريخ النسخ </label>
@@ -177,7 +185,18 @@
   </div>
   <div class="col-md-4">
     <label for="inputEmail4" class="form-label">نوع الخط</label>
-    <input type="text" class="form-control" name="font_type" id="font_type" autocomplete="off" placeholder="نوع الخط" />
+    <input type="text" class="form-control" name="font_type" id="font_type"  onkeyup="font_typeFilterFunction()" autocomplete="off" placeholder="نوع الخط" />
+    <div id="myDropdown3" class="dropdown-content">
+      <a href="javascript:void(0)" onclick="font_typeSetValue('نسخ')">نسخ</a>
+      <a href="javascript:void(0)" onclick="font_typeSetValue('نسخ رئاسي')">نسخ رئاسي</a>
+      <a href="javascript:void(0)" onclick="font_typeSetValue('نسخ معتاد')">نسخ معتاد</a>
+      <a href="javascript:void(0)" onclick="font_typeSetValue('ثلث')">ثلث</a>
+      <a href="javascript:void(0)" onclick="font_typeSetValue('تعليق')">تعليق</a>
+      <a href="javascript:void(0)" onclick="font_typeSetValue('نستعليق')">نستعليق</a>
+      <a href="javascript:void(0)" onclick="font_typeSetValue('أندلسي')">أندلسي</a>
+      <a href="javascript:void(0)" onclick="font_typeSetValue('مغربي')">مغربي</a>
+      <a href="javascript:void(0)" onclick="font_typeSetValue('رقعة')">رقعة</a>
+    </div>
   </div>
   <div class="col-md-12">
     <label for="inputEmail4" class="form-label">ملحوظة</label>
@@ -211,6 +230,8 @@
   $(function() {
 
     var org_art_clicked = false;
+    var compelete_version_clicked = false;
+    var font_type_clicked = false;
 
     //$("#hijri-date-input").hijriDatePicker({ hijri:true });
     //$("#gerogian-date-input").hijriDatePicker({ hijri:false , format:'YYYY-MM-DD' });
@@ -220,17 +241,44 @@
       return;
     });
 
-    $('body').click(function() {
-      //alert(org_art_clicked);
+    $('#compelete_version').click(function() {      
+      document.getElementById("myDropdown2").classList.add('show');      
+      return;
+    });
+
+    $('#font_type').click(function() {      
+      document.getElementById("myDropdown3").classList.add('show');      
+      return;
+    });
+
+    $('body').click(function() {  
+
       if(org_art_clicked == true){
         document.getElementById("myDropdown").classList.remove('show');
         org_art_clicked = false;
-      }    
+      } 
+      
+      if(compelete_version_clicked == true){
+        document.getElementById("myDropdown2").classList.remove('show');
+        compelete_version_clicked = false;
+      } 
+
+      if(font_type_clicked == true){
+        document.getElementById("myDropdown3").classList.remove('show');
+        font_type_clicked = false;
+      } 
     });
 
     $("#org_art").focusout(function() {     
-      org_art_clicked = true; 
-      //document.getElementById("myDropdown").classList.toggle('show');
+      org_art_clicked = true;       
+    });
+
+    $("#compelete_version").focusout(function() {     
+      compelete_version_clicked = true;       
+    });
+
+    $("#font_type").focusout(function() {     
+      font_type_clicked = true;       
     });
 
 
@@ -360,6 +408,7 @@
   }
 
 
+  // this for org_art input
   function filterFunction() {
     var input, filter, ul, li, a, i;
     input = document.getElementById("org_art");
@@ -376,10 +425,48 @@
     }
   }
 
+  function compelete_versionFilterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("compelete_version");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown2");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+      txtValue = a[i].textContent || a[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
+    }
+  }
+
+  function font_typeFilterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("font_type");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown3");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+      txtValue = a[i].textContent || a[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
+    }
+  }
+
   function setValue(value){
-    //alert(value);
-    //document.getElementById("myDropdown").classList.toggle('show');
     document.getElementById("org_art").value = value;
+  }
+
+  function compelete_versionSetValue(value){
+    document.getElementById("compelete_version").value = value;
+  }
+
+  function font_typeSetValue(value){
+    document.getElementById("font_type").value = value;
   }
 
 </script>
