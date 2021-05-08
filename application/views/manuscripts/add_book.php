@@ -16,8 +16,8 @@
   </div>
 
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">رقم السجل</label>    
-    <input type="text" class="form-control" minlength="8" name="registery_number" value="<?=$random_number?>" id="registery_number" placeholder="رقم السجل"  />
+    <label for="inputEmail4" class="form-label">رقم السجل</label>
+    <input type="text" class="form-control" minlength="8" name="registery_number" value="<?= $random_number ?>" id="registery_number" placeholder="رقم السجل" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">رقم حفظه في المركز</label>
@@ -25,15 +25,87 @@
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">الفن الأصلي</label>
-    <input type="text" class="form-control" name="org_art" id="org_art" placeholder="الفن الأصلي"  />
+    <input type="text" class="form-control" name="org_art" id="org_art" onkeyup="filterFunction()" placeholder="الفن الأصلي" autocomplete="off" />
+    <div id="myDropdown" class="dropdown-content">
+      <a href="javascript:void(0)" onclick="setValue('مصاحف شريفة')">مصاحف شريفة</a>
+      <a href="javascript:void(0)" onclick="setValue('قراءات')">قراءات</a>
+      <a href="javascript:void(0)" onclick="setValue('تجويد')">تجويد</a>
+      <a href="javascript:void(0)" onclick="setValue('الرسم العثماني')">الرسم العثماني</a>
+      <a href="javascript:void(0)" onclick="setValue('علم التفسير')">علم التفسير</a>
+      <a href="javascript:void(0)" onclick="setValue('علوم القرآن')">علوم القرآن</a>
+      <a href="javascript:void(0)" onclick="setValue('حديث')">حديث</a>
+      <a href="javascript:void(0)" onclick="setValue('مصطلح الحديث')">مصطلح الحديث</a>
+      <a href="javascript:void(0)" onclick="setValue('أدعية وأوراد')">أدعية وأوراد</a>
+      <a href="javascript:void(0)" onclick="setValue('فقه حنفي')">فقه حنفي</a>
+      <a href="javascript:void(0)" onclick="setValue('فقه مالكي')">فقه مالكي</a>
+      <a href="javascript:void(0)" onclick="setValue('فقه شافعي')">فقه شافعي</a>
+      <a href="javascript:void(0)" onclick="setValue('فقه حنبلي')">فقه حنبلي</a>
+      <a href="javascript:void(0)" onclick="setValue('فقه عام')">فقه عام</a>
+      <a href="javascript:void(0)" onclick="setValue('فقه ظاهري')">فقه ظاهري</a>         
+      <a href="javascript:void(0)" onclick="setValue('فقه زيدي')">فقه زيدي</a>         
+      <a href="javascript:void(0)" onclick="setValue('فقه جعفري')">فقه جعفري</a>         
+      <a href="javascript:void(0)" onclick="setValue('قواعد فقهية حنفية')">قواعد فقهية حنفية</a>         
+      <a href="javascript:void(0)" onclick="setValue('قواعد فقهية مالكية')">قواعد فقهية مالكية</a>         
+      <a href="javascript:void(0)" onclick="setValue('قواعد فقهية شافعية')">قواعد فقهية شافعية</a>         
+      <a href="javascript:void(0)" onclick="setValue('قواعد فقهية حنبلية')">قواعد فقهية حنبلية</a>         
+      <a href="javascript:void(0)" onclick="setValue('قواعد فقهية عامة')">قواعد فقهية عامة</a>         
+      <a href="javascript:void(0)" onclick="setValue('أصول فقه حنفية')">أصول فقه حنفية</a>         
+      <a href="javascript:void(0)" onclick="setValue('أصول فقه شافعية')">أصول فقه شافعية</a>         
+      <a href="javascript:void(0)" onclick="setValue('أصول فقه مالكية')">أصول فقه مالكية</a>         
+      <a href="javascript:void(0)" onclick="setValue('أصول فقه حنبلية')">أصول فقه حنبلية</a>         
+      <a href="javascript:void(0)" onclick="setValue('أصول فقه زيدية')">أصول فقه زيدية</a>         
+      <a href="javascript:void(0)" onclick="setValue('أصول فقه جعفرية')">أصول فقه جعفرية</a>         
+      <a href="javascript:void(0)" onclick="setValue('التوحيد وعلم الكلام')">التوحيد وعلم الكلام</a>         
+      <a href="javascript:void(0)" onclick="setValue('الملل والنحل')">الملل والنحل</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم اللغة')">علم اللغة</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الوضع والاشتقاق')">علم الوضع والاشتقاق</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الصرف')">علم الصرف</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم النحو')">علم النحو</a>         
+      <a href="javascript:void(0)" onclick="setValue('الخط والإملاء')">الخط والإملاء</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم البلاغة')">علم البلاغة</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم العروض والقافية')">علم العروض والقافية</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الأدب')">علم الأدب</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم التاريخ')">علم التاريخ</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم المنطق')">علم المنطق</a>         
+      <a href="javascript:void(0)" onclick="setValue('آداب البحث والمناظرة')">آداب البحث والمناظرة</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الفلسفة والحكمة')">علم الفلسفة والحكمة</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الحساب')">علم الحساب</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الهندسة')">علم الهندسة</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الجبر والمقابلة')">علم الجبر والمقابلة</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الأنساب')">علم الأنساب</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم تقويم البلدان')">علم تقويم البلدان</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الفلك')">علم الفلك</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الهيئة')">علم الهيئة</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الميقات والتقاويم')">علم الميقات والتقاويم</a>         
+      <a href="javascript:void(0)" onclick="setValue('الكيمياء والطبيعة')">الكيمياء والطبيعة</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الزراعة')">علم الزراعة</a>         
+      <a href="javascript:void(0)" onclick="setValue('الفروسية والفنون الحربية')">الفروسية والفنون الحربية</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الطب')">علم الطب</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الصيدلة')">علم الصيدلة</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم البيطرة')">علم البيطرة</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم البيزرة')">علم البيزرة</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الصنائع والحرف')">علم الصنائع والحرف</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم الآداب والفضائل')">علم الآداب والفضائل</a>         
+      <a href="javascript:void(0)" onclick="setValue('علم تأويل الرؤى')">علم تأويل الرؤى</a>         
+      <a href="javascript:void(0)" onclick="setValue('معارف عامة')">معارف عامة</a>         
+      <a href="javascript:void(0)" onclick="setValue('منمنمات وشاهنامات')">منمنمات وشاهنامات</a>         
+      <a href="javascript:void(0)" onclick="setValue('التصوف')">التصوف</a>         
+      <a href="javascript:void(0)" onclick="setValue('الموسيقى')">الموسيقى</a>         
+      <a href="javascript:void(0)" onclick="setValue('أحكام النجوم')">أحكام النجوم</a>         
+      <a href="javascript:void(0)" onclick="setValue('الحرف والرمل')">الحرف والرمل</a>         
+      <a href="javascript:void(0)" onclick="setValue('الطلاسم والسحر')">الطلاسم والسحر</a>         
+      <a href="javascript:void(0)" onclick="setValue('الفراسة والكف')">الفراسة والكف</a>         
+               
+      <!-- <a href="javascript:void(0)" onclick="setValue('about')">About</a>          -->
+    </div>
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">الفن الفرعي</label>
-    <input type="text" class="form-control" name="branch_art" id="branch_art" placeholder="الفن الفرعي"  />
+    <input type="text" class="form-control" name="branch_art" id="branch_art" placeholder="الفن الفرعي" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">العنوان الأصلي</label>
-    <input type="text" class="form-control" name="org_title" id="org_title" autocomplete="off" placeholder="العنوان الأصلي"  />
+    <input type="text" class="form-control" name="org_title" id="org_title"  autocomplete="off" placeholder="العنوان الأصلي" />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">العنوان الفرعي</label>
@@ -49,11 +121,11 @@
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">تاريخ وفاته </label>
-    <input type="number" class="form-control" name="auther_hijri_death" autocomplete="off" placeholder="تاريخ وفاته "  />
+    <input type="number" class="form-control" name="auther_hijri_death" autocomplete="off" placeholder="تاريخ وفاته " />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">قرن وفاته </label>
-    <input type="number" class="form-control" maxlength="2" max="15" name="auther_hijri_death_century" id="auther_hijri_death_century" autocomplete="off" placeholder="قرن وفاته "  /> 
+    <input type="number" class="form-control" maxlength="2" max="15" name="auther_hijri_death_century" id="auther_hijri_death_century" autocomplete="off" placeholder="قرن وفاته " />
   </div>
   <!-- <div class="col-md-6">
     <label for="inputEmail4" class="form-label">تاريخ وفاته ميلاديا</label>
@@ -89,11 +161,11 @@
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">تاريخ النسخ </label>
-    <input type="number" class="form-control" name="version_date_hijri" id="version_date_hijri" autocomplete="off" placeholder="تاريخ النسخ "  />
+    <input type="number" class="form-control" name="version_date_hijri" id="version_date_hijri" autocomplete="off" placeholder="تاريخ النسخ " />
   </div>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">قرن النسخ </label>
-    <input type="number" class="form-control" maxlength="2" max="15" name="version_date_century" id="version_date_century" autocomplete="off" placeholder="قرن النسخ "  />
+    <input type="number" class="form-control" maxlength="2" max="15" name="version_date_century" id="version_date_century" autocomplete="off" placeholder="قرن النسخ " />
   </div>
   <div class="col-md-4">
     <label for="inputEmail4" class="form-label">اسم الناسخ</label>
@@ -118,11 +190,11 @@
   <div class="col-md-12">
     <label for="inputEmail4" class="form-label">رقم حفظه فيها</label>
     <input type="text" class="form-control" name="save_number_in_asset" id="save_number_in_asset" autocomplete="off" placeholder="رقم حفظه فيها" />
-  </div>  
+  </div>
   <div class="col-md-12">
     <label for="inputEmail4" class="form-label">مصدر الإدخال</label>
     <input type="text" class="form-control" name="entry_source" id="entry_source" autocomplete="off" placeholder="مصدر الإدخال" />
-  </div>   
+  </div>
   <div class="col-md-12">
     <br>
     <input type="submit" class="btn btn-success" value="حفظ المخطوطة" />
@@ -138,8 +210,29 @@
 <script type="text/javascript">
   $(function() {
 
+    var org_art_clicked = false;
+
     //$("#hijri-date-input").hijriDatePicker({ hijri:true });
     //$("#gerogian-date-input").hijriDatePicker({ hijri:false , format:'YYYY-MM-DD' });
+
+    $('#org_art').click(function() {      
+      document.getElementById("myDropdown").classList.add('show');      
+      return;
+    });
+
+    $('body').click(function() {
+      //alert(org_art_clicked);
+      if(org_art_clicked == true){
+        document.getElementById("myDropdown").classList.remove('show');
+        org_art_clicked = false;
+      }    
+    });
+
+    $("#org_art").focusout(function() {     
+      org_art_clicked = true; 
+      //document.getElementById("myDropdown").classList.toggle('show');
+    });
+
 
     /*$("#edition_date").hijriDatePicker({
       hijri: false,
@@ -242,12 +335,12 @@
 
   });
 
-  function onSubmit(){
+  function onSubmit() {
 
     var auther_hijri_death_century = document.getElementById('auther_hijri_death_century');
     auther_hijri_death_century.oninvalid = function(event) {
-        event.target.setCustomValidity('الرجاء ان لا يتجاوز الرقم 15');
-        return false;
+      event.target.setCustomValidity('الرجاء ان لا يتجاوز الرقم 15');
+      return false;
     }
 
     /*var auther_gregorian_death_century = document.getElementById('auther_gregorian_death_century');
@@ -255,14 +348,38 @@
         event.target.setCustomValidity('الرجاء ان لا يتجاوز الرقم 21');
         return false;
     }*/
-    
+
     var version_date_century = document.getElementById('version_date_century');
     version_date_century.oninvalid = function(event) {
-        event.target.setCustomValidity('الرجاء ان لا يتجاوز الرقم 15');
-        return false;
-    }    
+      event.target.setCustomValidity('الرجاء ان لا يتجاوز الرقم 15');
+      return false;
+    }
 
     return true;
-    
+
   }
+
+
+  function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("org_art");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+      txtValue = a[i].textContent || a[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
+    }
+  }
+
+  function setValue(value){
+    //alert(value);
+    //document.getElementById("myDropdown").classList.toggle('show');
+    document.getElementById("org_art").value = value;
+  }
+
 </script>
