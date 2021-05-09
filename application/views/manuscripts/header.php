@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" /> -->
     <link rel="stylesheet" href="<?=base_url()?>assits/css/rtl/bootstrap.min.css">
-    <link rel="stylesheet" href="<?=base_url()?>assits/css/main.css?v=1.4">
+    <link rel="stylesheet" href="<?=base_url()?>assits/css/main.css?v=1.5">
 
     <link rel="stylesheet" href="<?=base_url()?>assits/css/bootstrap-datetimepicker.min.css" />    
 

@@ -98,13 +98,17 @@ input:checked + .slider:before {
 .dropdown-content {
     display: none;
     max-height: 350px;
-    width: 70%;
+    width: auto;
     position: absolute;
     background-color: #f6f6f6;
     min-width: 230px;
     overflow: auto;
     border: 1px solid #ddd;
     z-index: 1;
+}
+
+div#myDropdown4 {
+    width: auto;
 }
 
 .dropdown-content a {
